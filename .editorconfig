@@ -1,4 +1,4 @@
-# Indentation override for all JS under lib directory
+# EditorConfig is awesome: http://EditorConfig.org
 [*]
 indent_style = space
 
