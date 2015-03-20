@@ -1,0 +1,443 @@
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0px;
+	font: 12px "Open Sans", arial, sans-serif;
+	color: #4D4D4D;
+	background: none repeat scroll 0% 0% #3D5672;
+}
+.sem-espaco {
+	padding: 0px;
+}
+.row {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+.content {
+	height: 100%;
+}
+.aside-geral {
+	width: 210px;
+}
+#content-geral {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+#top {
+	display: block;
+	width: 100%;
+	background: none repeat scroll 0% 0% #2B3D51;
+	height: 60px;
+	line-height: 60px;
+	padding: 0px 20px !important;
+	vertical-align: middle;
+}
+.cor-fundo-escuro {
+	color: #A3B7CE;
+	margin: 0px !important;
+}
+
+/*----------------------------*/
+
+/*lateral*/
+
+/*----------------------------*/
+#lateral {
+	position: absolute;
+	top: 80px;
+	min-width: 210px;
+}
+#lateral ul {
+	padding: 0px 0px 0px 2px;
+}
+#lateral li {
+	list-style-image: none;
+	list-style-type: none;
+}
+
+/*----------------------------*/
+
+/*lateral selecionado*/
+
+/*----------------------------*/	
+#lateral .selecionado:after {
+	position: absolute;
+	left: 4px;
+	top: 11px;
+	height: 0px;
+	width: 0px;
+	border-left: 5px solid #D66061;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	content: "";
+}
+#lateral .selecionado:before {
+	position: absolute;
+	left: 0px;
+	height: 100%;
+	border-left: 4px solid #D66061;
+	content: "";
+}
+#lateral .selecionado {
+	background: none repeat scroll 0% 0% #466383;
+}
+#lateral .selecionado a {
+	color: #FDFDFE;
+	font-weight: 600;
+}
+#lateral .selecionado a {
+	text-decoration: none;
+	color: #fdfdfe;
+}
+#lateral ul, #lateral li {
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;
+	list-style: none outside none;
+	font-weight: normal;
+	text-decoration: none;
+	line-height: 1;
+	position: relative;
+}
+#lateral ul > li > a {
+	font-size: 14px;
+	display: block;
+	color: #99AFC9;
+	font-weight: 400;
+	padding: 12px 15px;
+	position: relative;
+}
+#lateral ul > li:hover {
+	background: #466383;
+	text-decoration: none;
+}
+#lateral ul > li > a:hover {
+	color: #99afc9;
+	text-decoration: none;
+}
+#lateral ul > li.selecionado > a:hover {
+	color: #fdfdfe;
+	text-decoration: none;
+}
+#lateral ul > li > a > .page-atual {
+	position: absolute;
+	right: 0px;
+	top: 10px;
+	height: 0px;
+	width: 0px;
+	border-right: 9px solid #FFF;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	content: "";
+}
+#lateral ul > li > a > i {
+	font-size: 14px;
+	margin-right: 10px;
+	color: #99AFC9;
+	width: 20px;
+	float: left;
+	line-height: 14px;
+	text-align: center;
+}
+#lateral ul > li.selecionado > a > i {
+	color: #FDFDFE;
+}
+
+/*----------------------------*/
+
+/*conteudo*/
+
+/*----------------------------*/
+#content-geral {
+	padding: 0px;
+	text-align: left;
+	min-height: 100% !important;
+	margin: 0px auto 0px 210px;
+	background: none repeat scroll 0% 0% #FFF;
+	clear: both;
+}
+.headerContent h2 {
+	margin: 10px 0px 0px 10px;
+}
+.titulo {
+	padding: 20px 0px 0px 20px !important;
+	border-bottom: 1px solid #E2E8F0;
+	vertical-align: middle;
+}
+.titulo p.text-titulo {
+	font-size: 22pt;
+}
+
+/*----------------------------*/
+
+/* Caixa colorida de pequenas infos*/
+
+/*----------------------------*/
+
+.box-small-info {
+	padding: 10px 10px 0px;
+	text-align: center;
+}
+.box-vermelho {
+	color: #FFF;
+	background: none repeat scroll 0% 0% #D66061 !important;
+}
+.box-verde {
+	background: none repeat scroll 0% 0% #76BBAD !important;
+	color: #FFF;
+}
+.box-azul-escuro {
+	color: #FFF;
+	background: none repeat scroll 0% 0% #5B90BF !important;
+}
+.box-marrom {
+	background: none repeat scroll 0% 0% #AB7967;
+	color: #FFF;
+}
+.box-azul-claro {
+	background: none repeat scroll 0% 0% #00ACEE;
+	color: #FFF;
+}
+.spacer-xs {
+	padding: 4px 0px 1px;
+	position: relative;
+} 
+
+.spacer-xs i {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	font-size: 12px;
+	width: 20px;
+	height: 20px;
+	line-height: 18px;
+	text-align: center;
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-radius: 100%;
+}
+
+/*----------------------------*/
+
+/*conteudo dinamico - Caixa de conteudo*/
+
+/*----------------------------*/
+
+/*sem fundo*/
+.blog {
+	margin-bottom: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 10px;
+	background: #f9fbfc;
+	position: relative;
+}
+.blog:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 40;
+	border-width: 0 12px 12px 0;
+	border-style: solid;
+	border-color: #a9bcd2 white #a9bcd2 #a9bcd2;
+	background: transparent;
+	display: block;
+	width: 0;
+}
+.blog-header {
+	position: relative;
+	padding: 12px 15px;
+	border: 1px solid #dfe6ee;
+	border-bottom: 0;
+}
+.blog-header p.date-time {
+	margin: 0;
+	color: #666666;
+	font-size: 11px;
+}
+.blog-header p.date-time span {
+	display: inline;
+	margin-right: 10px;
+}
+.blog-header p.date-time span i {
+	margin-right: 2px;
+	font-size: 12px;
+}
+.blog-header img.blog-post-user {
+	max-width: 48px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	float: right;
+}
+h4.blog-title {
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #5b90bf;
+	margin-top: 0;
+}
+h5.blog-title {
+	font-size: 14px;
+	font-weight: 600;
+	color: #4e6f94;
+	margin: 0;
+}
+.blog-body {
+	padding: 15px;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #dfe6ee;
+}
+.blog-body .blog-img {
+	border: 2px solid #a9bcd2;
+	min-height: 160px;
+	margin-bottom: 10px;
+}
+.blog-body .blog-content {
+	font-size: 15px;
+	line-height: 20px;
+	color: #595959;
+}
+@media (max-width:767px) {
+	.blog-body .blog-img {
+		min-height: 60px;
+	}
+	.blog-body .blog-content {
+		font-size: 12px;
+		line-height: 16px;
+	}
+}
+.blog-footer {
+	padding: 15px;
+	border: 1px solid #e2e8f0;
+	border-top: 0;
+	border-bottom: 2px solid #e2e8f0;
+	position: relative;
+}
+.blog-footer:before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	right: 15px;
+	z-index: 40;
+	border-width: 0 10px 10px;
+	border-style: solid;
+	border-color: #e2e8f0 white #e2e8f0;
+	background: transparent;
+	display: block;
+	width: 0;
+}
+
+/*fundo azul*/
+.blog-info {
+	background-color: #5b90bf;
+}
+.blog-info:before {
+	border-color: #3a6994 #fafafa #3a6994 #3a6994;
+}
+.blog-info .blog-header {
+	border: 1px solid #5b90bf;
+}
+.blog-info .blog-header h5.blog-title {
+	color: white;
+}
+.blog-info .blog-body {
+	border: 1px solid #5b90bf;
+	background: white;
+}
+
+/*fundo vermelho*/
+.blog-danger {
+	background-color: #d66061;
+}
+.blog-danger:before {
+	border-color: #ba3031 #fafafa #ba3031 #ba3031;
+}
+.blog-danger .blog-header {
+	border: 1px solid #d66061;
+}
+.blog-danger .blog-header h5.blog-title {
+	color: white;
+}
+.blog-danger .blog-body {
+	border: 1px solid #d66061;
+	background: white;
+}
+
+/*fundo cinza*/
+.blog-grey {
+	background-color: gray;
+}
+.blog-grey:before {
+	border-color: #4d4d4d #fafafa #4d4d4d #4d4d4d;
+}
+.blog-grey .blog-header {
+	border: 1px solid gray;
+}
+.blog-grey .blog-header h5.blog-title {
+	color: white;
+}
+.blog-grey .blog-body {
+	border: 1px solid gray;
+	background: white;
+}
+
+/*fundo cinza claro*/
+.blog-light-grey {
+	background-color: #d9d9d9;
+}
+.blog-light-grey:before {
+	border-color: #999999 #fafafa #999999 #999999;
+}
+.blog-light-grey .blog-header {
+	border: 1px solid #d9d9d9;
+}
+.blog-light-grey .blog-header h5.blog-title {
+	color: #4d4d4d;
+}
+.blog-light-grey .blog-body {
+	border: 1px solid #d9d9d9;
+	background: white;
+}
+
+/*fundo amarelo*/
+.blog-warning {
+	background-color: #ffaa3a;
+}
+.blog-warning:before {
+	border-color: #ff9407 #fafafa #ff9407 #ff9407;
+}
+.blog-warning .blog-header {
+	border: 1px solid #ffaa3a;
+}
+.blog-warning .blog-header h5.blog-title {
+	color: white;
+}
+.blog-warning .blog-body {
+	border: 1px solid #ffaa3a;
+	background: white;
+}
+
+/*verde claro*/
+.blog-success {
+	background-color: #76bbad;
+}
+.blog-success:before {
+	border-color: #54aa98 #fafafa #54aa98 #54aa98;
+}
+.blog-success .blog-header {
+	border: 1px solid #76bbad;
+}
+.blog-success .blog-header h5.blog-title {
+	color: white;
+}
+.blog-success .blog-body {
+	border: 1px solid #76bbad;
+	background: white;
+}

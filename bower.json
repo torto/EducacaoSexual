@@ -1,0 +1,20 @@
+{
+  "name": "Jogo",
+  "version": "0.0.1",
+  "authors": [
+    "Guilherme Berghauser <tortoyoyo@gmail.com>"
+  ],
+  "description": "Jogo para trabalhar com crianças vitimas de violencia sexual",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.14",
+    "bootstrap": "~3.3.2"
+  }
+}

@@ -1,0 +1,184 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'body-parse',
+1 verbose cli   'method-override',
+1 verbose cli   '--save' ]
+2 info using npm@2.0.0
+3 info using node@v0.10.29
+4 verbose node symlink /usr/bin/node
+5 warn package.json Jogo@0.0.1 No repository field.
+6 warn package.json Jogo@0.0.1 No README data
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'body-parse', null ]
+9 verbose cache add spec="body-parse" args=["body-parse",null]
+10 verbose parsed spec { raw: 'body-parse',
+10 verbose parsed spec   scope: null,
+10 verbose parsed spec   name: 'body-parse',
+10 verbose parsed spec   rawSpec: '',
+10 verbose parsed spec   spec: '*',
+10 verbose parsed spec   type: 'range' }
+11 verbose cache add [ 'method-override', null ]
+12 verbose cache add spec="method-override" args=["method-override",null]
+13 verbose parsed spec { raw: 'method-override',
+13 verbose parsed spec   scope: null,
+13 verbose parsed spec   name: 'method-override',
+13 verbose parsed spec   rawSpec: '',
+13 verbose parsed spec   spec: '*',
+13 verbose parsed spec   type: 'range' }
+14 verbose parsed spec { raw: 'body-parse',
+14 verbose parsed spec   scope: null,
+14 verbose parsed spec   name: 'body-parse',
+14 verbose parsed spec   rawSpec: '',
+14 verbose parsed spec   spec: '*',
+14 verbose parsed spec   type: 'range' }
+15 verbose addNamed [ 'body-parse', '*' ]
+16 verbose addNamed [ null, '*' ]
+17 verbose parsed spec { raw: 'method-override',
+17 verbose parsed spec   scope: null,
+17 verbose parsed spec   name: 'method-override',
+17 verbose parsed spec   rawSpec: '',
+17 verbose parsed spec   spec: '*',
+17 verbose parsed spec   type: 'range' }
+18 verbose addNamed [ 'method-override', '*' ]
+19 verbose addNamed [ null, '*' ]
+20 silly lockFile 32841cba-body-parse body-parse@*
+21 verbose lock body-parse@* /home/torto/.npm/32841cba-body-parse.lock
+22 silly lockFile 55aed036-method-override method-override@*
+23 verbose lock method-override@* /home/torto/.npm/55aed036-method-override.lock
+24 silly addNameRange { name: 'body-parse', range: '*', hasData: false }
+25 verbose mapToRegistry name body-parse
+26 verbose mapToRegistry uri https://registry.npmjs.org/body-parse
+27 silly addNameRange { name: 'method-override', range: '*', hasData: false }
+28 verbose mapToRegistry name method-override
+29 verbose mapToRegistry uri https://registry.npmjs.org/method-override
+30 verbose request on initialization, where is /body-parse
+31 verbose request after pass 1, where is /body-parse
+32 verbose request url raw /body-parse
+33 verbose request resolving registry [ 'https://registry.npmjs.org/', './body-parse' ]
+34 verbose request after pass 2, where is https://registry.npmjs.org/body-parse
+35 verbose request no auth needed
+36 info attempt registry request try #1 at 20:26:40
+37 verbose request id 199bf5cb4ad9771d
+38 http request GET https://registry.npmjs.org/body-parse
+39 verbose request on initialization, where is /method-override
+40 verbose request after pass 1, where is /method-override
+41 verbose request url raw /method-override
+42 verbose request resolving registry [ 'https://registry.npmjs.org/', './method-override' ]
+43 verbose request after pass 2, where is https://registry.npmjs.org/method-override
+44 verbose request no auth needed
+45 info attempt registry request try #1 at 20:26:40
+46 http request GET https://registry.npmjs.org/method-override
+47 http 404 https://registry.npmjs.org/body-parse
+48 verbose headers { date: 'Mon, 09 Mar 2015 23:26:41 GMT',
+48 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+48 verbose headers   'content-type': 'application/json',
+48 verbose headers   'cache-control': 'max-age=0',
+48 verbose headers   'content-length': '52',
+48 verbose headers   'accept-ranges': 'bytes',
+48 verbose headers   via: '1.1 varnish',
+48 verbose headers   age: '0',
+48 verbose headers   'x-served-by': 'cache-iad2125-IAD',
+48 verbose headers   'x-cache': 'MISS',
+48 verbose headers   'x-cache-hits': '0',
+48 verbose headers   'x-timer': 'S1425943601.078514,VS0,VE53',
+48 verbose headers   'keep-alive': 'timeout=10, max=50',
+48 verbose headers   connection: 'Keep-Alive' }
+49 silly registry.get cb [ 404,
+49 silly registry.get   { date: 'Mon, 09 Mar 2015 23:26:41 GMT',
+49 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+49 silly registry.get     'content-type': 'application/json',
+49 silly registry.get     'cache-control': 'max-age=0',
+49 silly registry.get     'content-length': '52',
+49 silly registry.get     'accept-ranges': 'bytes',
+49 silly registry.get     via: '1.1 varnish',
+49 silly registry.get     age: '0',
+49 silly registry.get     'x-served-by': 'cache-iad2125-IAD',
+49 silly registry.get     'x-cache': 'MISS',
+49 silly registry.get     'x-cache-hits': '0',
+49 silly registry.get     'x-timer': 'S1425943601.078514,VS0,VE53',
+49 silly registry.get     'keep-alive': 'timeout=10, max=50',
+49 silly registry.get     connection: 'Keep-Alive' } ]
+50 silly lockFile 32841cba-body-parse body-parse@*
+51 silly lockFile 32841cba-body-parse body-parse@*
+52 http 200 https://registry.npmjs.org/method-override
+53 silly registry.get cb [ 200,
+53 silly registry.get   { date: 'Mon, 09 Mar 2015 23:26:41 GMT',
+53 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+53 silly registry.get     etag: '"UT6P30H7ZO3FXPWNAUT3JEO0"',
+53 silly registry.get     'content-type': 'application/json',
+53 silly registry.get     'cache-control': 'max-age=60',
+53 silly registry.get     'content-length': '29115',
+53 silly registry.get     'accept-ranges': 'bytes',
+53 silly registry.get     via: '1.1 varnish',
+53 silly registry.get     age: '59',
+53 silly registry.get     'x-served-by': 'cache-iad2131-IAD',
+53 silly registry.get     'x-cache': 'HIT',
+53 silly registry.get     'x-cache-hits': '1',
+53 silly registry.get     'x-timer': 'S1425943601.072255,VS0,VE0',
+53 silly registry.get     vary: 'Accept',
+53 silly registry.get     'keep-alive': 'timeout=10, max=50',
+53 silly registry.get     connection: 'Keep-Alive' } ]
+54 silly addNameRange number 2 { name: 'method-override', range: '*', hasData: true }
+55 silly addNameRange versions [ 'method-override',
+55 silly addNameRange   [ '1.0.0',
+55 silly addNameRange     '1.0.1',
+55 silly addNameRange     '1.0.2',
+55 silly addNameRange     '2.0.0',
+55 silly addNameRange     '2.0.1',
+55 silly addNameRange     '2.0.2',
+55 silly addNameRange     '2.1.0',
+55 silly addNameRange     '2.1.1',
+55 silly addNameRange     '2.1.2',
+55 silly addNameRange     '2.1.3',
+55 silly addNameRange     '2.2.0',
+55 silly addNameRange     '2.3.0',
+55 silly addNameRange     '2.3.1' ] ]
+56 verbose addNamed [ 'method-override', '2.3.1' ]
+57 verbose addNamed [ '2.3.1', '2.3.1' ]
+58 silly lockFile 80095fdc-method-override-2-3-1 method-override@2.3.1
+59 verbose lock method-override@2.3.1 /home/torto/.npm/80095fdc-method-override-2-3-1.lock
+60 silly lockFile 56088932-erride-method-override-2-3-1-tgz https://registry.npmjs.org/method-override/-/method-override-2.3.1.tgz
+61 verbose lock https://registry.npmjs.org/method-override/-/method-override-2.3.1.tgz /home/torto/.npm/56088932-erride-method-override-2-3-1-tgz.lock
+62 verbose addRemoteTarball [ 'https://registry.npmjs.org/method-override/-/method-override-2.3.1.tgz',
+62 verbose addRemoteTarball   '59796b7ce565ae9f77f3b312447d2c0f938f93c6' ]
+63 info retry fetch attempt 1 at 20:26:41
+64 info attempt registry request try #1 at 20:26:41
+65 http fetch GET https://registry.npmjs.org/method-override/-/method-override-2.3.1.tgz
+66 http fetch 200 https://registry.npmjs.org/method-override/-/method-override-2.3.1.tgz
+67 silly fetchAndShaCheck shasum 59796b7ce565ae9f77f3b312447d2c0f938f93c6
+68 silly lockFile 56088932-erride-method-override-2-3-1-tgz https://registry.npmjs.org/method-override/-/method-override-2.3.1.tgz
+69 silly lockFile 56088932-erride-method-override-2-3-1-tgz https://registry.npmjs.org/method-override/-/method-override-2.3.1.tgz
+70 silly lockFile 80095fdc-method-override-2-3-1 method-override@2.3.1
+71 silly lockFile 80095fdc-method-override-2-3-1 method-override@2.3.1
+72 silly lockFile 55aed036-method-override method-override@*
+73 silly lockFile 55aed036-method-override method-override@*
+74 verbose stack Error: 404 Not Found: body-parse
+74 verbose stack     at RegClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:259:14)
+74 verbose stack     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:198:65)
+74 verbose stack     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:236:22)
+74 verbose stack     at Request.emit (events.js:98:17)
+74 verbose stack     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+74 verbose stack     at Request.emit (events.js:117:20)
+74 verbose stack     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+74 verbose stack     at IncomingMessage.emit (events.js:117:20)
+74 verbose stack     at _stream_readable.js:929:16
+74 verbose stack     at process._tickCallback (node.js:419:13)
+75 verbose statusCode 404
+76 verbose pkgid body-parse
+77 verbose cwd /home/torto/universidade/tcc/Desenvolvimento/Jogo
+78 error Linux 3.14-2-amd64
+79 error argv "node" "/usr/bin/npm" "install" "body-parse" "method-override" "--save"
+80 error node v0.10.29
+81 error npm  v2.0.0
+82 error code E404
+83 error 404 Not Found: body-parse
+83 error 404
+83 error 404 'body-parse' is not in the npm registry.
+83 error 404 You should bug the author to publish it (or use the name yourself!)
+83 error 404 It was specified as a dependency of 'Jogo'
+83 error 404
+83 error 404 Note that you can also install from a
+83 error 404 tarball, folder, http url, or git url.
+84 verbose exit [ 1, true ]
