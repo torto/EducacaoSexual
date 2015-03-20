@@ -85,6 +85,7 @@ body {
 }
 #lateral .selecionado {
 	background: none repeat scroll 0% 0% #466383;
+	border-bottom: none !important;
 }
 #lateral .selecionado a {
 	color: #FDFDFE;
@@ -146,6 +147,10 @@ body {
 }
 #lateral ul > li.selecionado > a > i {
 	color: #FDFDFE;
+}
+
+#lateral ul > li.lineDiv{
+	border-bottom: 1px dotted #4E6F94;
 }
 
 /*----------------------------*/

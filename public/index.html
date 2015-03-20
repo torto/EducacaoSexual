@@ -2,94 +2,27 @@
 	<head>
 		<meta name="viewport" content="width=device-width">
 		<meta charset="UTF-8">
+		<script src="//localhost:35729/livereload.js"></script>
 		<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		
-		<body ng-controller="algo">
-			<header id="top" class="row sem-espaco">
-				<!-- Cabeçalho -->
-				<div class="col-md-8"><p class="cor-fundo-escuro">Jogo Educação Sexual</p></div>
-				<div class="col-md-4"><p class="cor-fundo-escuro">.col-md-4</p></div>
-			</header>
-			<div class="content">
-				<aside class="aside-geral">
-					<section id="lateral">
-						<ul>
-							<li class="selecionado"><a href="#"><i class="glyphicon glyphicon-th"></i>Home <span class="page-atual"></span></a></li>
-							<li><a href="#"><i class="fa fa-spinner fa-spin"></i>About Us</a></li>
-							<li><a href="#">Feedback</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-					</section>
-				</aside>
-				<section id="content-geral" >
-					<div class="row titulo" >
-						<div class="col-md-4"><p class="text-titulo">Home</p></div>
-						<div class="col-md-4 col-md-offset-4"><p class="text-right">Info Login</p></div>
-					</div>
-					
-					<div class="box-small-info">
-						<div class="row">
-							<div class="col-md-offset-2 col-md-2">
-								<div class="box-azul-claro text-center">
-									<div class="spacer-xs">
-										<i class="glyphicon glyphicon-cloud"></i>
-										<small class="text-center">Github</small>
-										<h3 class="no-margin no-padding text-center">9%</h3>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-2">
-								<div class="box-azul-escuro text-center">
-									<div class="spacer-xs">
-										<i class="glyphicon glyphicon-cloud"></i>
-										<small class="text-center">Github</small>
-										<h3 class="no-margin no-padding text-center">9%</h3>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-2">
-								<div class="box-vermelho text-center">
-									<div class="spacer-xs">
-										<i class="glyphicon glyphicon-cloud"></i>
-										<small class="text-center">Github</small>
-										<h3 class="no-margin no-padding text-center">9%</h3>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-2">
-								<div class="box-verde text-center">
-									<div class="spacer-xs">
-										<i class="glyphicon glyphicon-cloud"></i>
-										<small class="text-center">Github</small>
-										<h3 class="no-margin no-padding text-center">9%</h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="blog blog-info">
-						<div class="blog-header">
-							<h5 class="blog-title">Edição de Quadrinhos</h5>
-						</div>
-						<div class="blog-body">sdsf</div>
-					</div>
-				</section>
-				
-			</div>
-			<footer class="row" id="footer">
-				<!-- Footer -->
-			</footer>
+		<body>
 			
+			<div ng-view></div>
 			<!-- Modulo Angular -->
 			<script type="text/javascript" src="vendor/angular/angular.js"></script>
+			<script type="text/javascript" src="vendor/angular-route/angular-route.js"></script>
+			<script type="text/javascript" src="vendor/angular-resource/angular-resource.js"></script>
+			
+			<!-- MAIN - PRINCIPAL -->
 			<script type="text/javascript" src="js/main.js"></script>
+			<!-- SERVICES -->
+			<script type="text/javascript" src="js/services/MenuService.js"></script>
+			
+			<!-- CONTROLLERS -->
+			<script type="text/javascript" src="js/controllers/PrincipalController.js"></script>
+			
 		</body>
 	</html>
