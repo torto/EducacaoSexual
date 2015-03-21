@@ -1,12 +1,5 @@
 module.exports = function(grunt) {
-
     grunt.initConfig({
-        express: {
-            options: {
-                port: 3000,
-                hostname: '*'
-            }
-        },
         watch: {
             dist: {
                 files: ['**/*'],

@@ -1,9 +1,34 @@
-<section id="lateral">
-	<ul>
-		<li ng-class="{'selecionado':principal}" class="lineDiv"><a href="#"><i class="glyphicon glyphicon-th"></i>Principal<span class="page-atual"></span></a></li>
-		<li ng-class="{'selecionado':criarQuadrinho}"><a href="#"><i class="glyphicon glyphicon-plus"></i>Criar Quadrinho</a></li>
-		<li ng-class="{'selecionado':seusQuadrinhos}" class="lineDiv"><a href="#"><i class="glyphicon glyphicon-file"></i>Seus Quadrinhos</a></li>
-		<li ng-class="{'selecionado':addAluno}"><a href="#"><i class="glyphicon glyphicon-plus-sign"></i>Adicionar Aluno</a></li>
-		<li ng-class="{'selecionado':seusAluno}"><a href="#"><i class="glyphicon glyphicon-education"></i>Seus Alunos</a></li>
-	</ul>
-</section>
+<aside class="aside-geral">
+	<section id="lateral">
+		<ul>
+			<li ng-class="{'selecionado':principal}" class="lineDiv">
+				<a href="#">
+					<i class="glyphicon glyphicon-th"></i>Principal
+					<span ng-class="{'page-atual':principal}"></span>
+				</a>
+			</li>
+			<li ng-class="{'selecionado':criarQuadrinho}">
+				<a href="#">
+					<i class="glyphicon glyphicon-plus"></i>Criar Quadrinho
+					<span ng-class="{'page-atual':criarQuadrinho}"></span>
+				</a>
+			</li>
+			<li ng-class="{'selecionado':seusQuadrinhos}" class="lineDiv">
+				<a href="#">
+					<i class="glyphicon glyphicon-file"></i>Seus Quadrinhos
+					<span ng-class="{'page-atual':seusQuadrinhos}"></span>
+				</a>
+			</li>
+			<li ng-class="{'selecionado':addAluno}">
+				<a href="#"><i class="glyphicon glyphicon-plus-sign"></i>Adicionar Aluno
+					<span ng-class="{'page-atual':addAluno}"></span>
+				</a>
+			</li>
+			<li ng-class="{'selecionado':seusAluno}">
+				<a href="#"><i class="glyphicon glyphicon-education"></i>Seus Alunos
+					<span ng-class="{'page-atual':seusAluno}"></span>
+				</a>
+			</li>
+		</ul>
+	</section>
+</aside>

@@ -446,3 +446,17 @@ h5.blog-title {
 	border: 1px solid #76bbad;
 	background: white;
 }
+
+/*----------------------------*/
+
+/*EDIÇÃO DO FUNDO ------------*/
+
+/*----------------------------*/
+
+#edicao{
+	border: 3px solid #A9A9A9;
+}
+
+#edicao img.fundoQuadro{
+	max-height: 600px;
+}
