@@ -1,28 +1,39 @@
 <div class="row">
 	<div class="col-md-12">
-		<div class="blog blog-info">
+		<div class="blog ">
 			<div class="blog-header">
 				<h5 class="blog-title">Edição de Quadrinhos</h5>
 			</div>
 			<div class="blog-body">
-				
 				<div class="row">
-					<div class="col-md-6">
-						<div id="edicao">
-							<img src="../img/cozinha.jpg" class="img-responsive fundoQuadro" >
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="blog blog-info">
-							<div class="blog-header">
-								<h5 class="blog-title">Edição de Quadrinhos</h5>
-							</div>
-							<div class="blog-body">sdsf</div>
+					<div class="col-md-12">
+						<div class="text-center">
+							<h4>Selecione uma imagem para adicionar como FUNDO de sua cena.</h4>
 						</div>
 					</div>
 				</div>
-				
+				<div class="row">
+					<div class="col-md-6">
+						<div class="edicao">
+							<img src="{{imgFundo.img}}" class="img-responsive fundoQuadro" alt="{{imgFundo.name}}" >
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h5 class="panel-title">Selecione um fundo</h5>
+							</div>
+							<div class="panel-body">
+								
+								<ng-include src="'partials/cadFundo/quadrinhosFundo.html'">sdsf</ng-include>
+							</div>
+							
+						</div>
+					</div>
+				</div>
 			</div>
+			
 		</div>
 	</div>
+</div>
 </div>

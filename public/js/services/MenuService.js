@@ -1,7 +1,7 @@
 angular.module('jogo').factory('MenuService',
     function() {
 
-         function retorno(scope, name) {
+        function retorno(scope, name) {
 
             function zerar() {
                 scope.principal = false;
@@ -39,5 +39,7 @@ angular.module('jogo').factory('MenuService',
             }
         };
 
-        return retorno;
+        return {
+            menuPrincipal: retorno
+        };
     });

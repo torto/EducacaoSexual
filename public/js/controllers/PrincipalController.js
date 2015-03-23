@@ -6,6 +6,6 @@ angular.module('jogo').controller('PrincipalController',
             menu: 'principal'
         }
 
-        initPage($scope, init);
+        initPage.pageCompleta($scope, init);
 
     });
