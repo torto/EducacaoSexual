@@ -1,11 +1,10 @@
 angular.module('jogo').controller('CadFundoController',
-    function($scope, $resource, $routeParams, initPage) {
+    function($scope, $resource, $routeParams, initPage, PaginacaoService) {
 
         // Contrutor ------
         // ----------------
 
-        var contadorPaginacao = 1;
-        var contadorMax = 0;
+        
 
         // ----------------
 
@@ -44,51 +43,66 @@ angular.module('jogo').controller('CadFundoController',
         }, {
             name: "Quadro Negro",
             img: "../img/quadro.jpg"
+        }, {
+            name: "Quadro Negro",
+            img: "../img/quadro.jpg"
         }];
 
         $scope.imagensExibicao = [];
 
         $scope.imgFundo = $scope.imagens[0];
 
-        $scope.mudarImagem = function(image) {
-            $scope.imgFundo = image;
-        }
+        PaginacaoService.quadroSelecaoPadrao($scope,{
+            array: 'imagens',
+            imageTrocar:'imgFundo',
+            arrayQuadros: 'imagensExibicao'
+        })
 
-        $scope.avancarPaginacao = function() {
-            if (contadorPaginacao != contadorMax) {
-                contadorPaginacao++;
-                carregarProximos();
+        // $scope.mudarImagem = function(image) {
+        //     $scope.imgFundo = image;
+        // }
 
-            }
-        }
+        // $scope.avancarPaginacao = function() {
+        //     var maxIf = contadorMax | 0
+        //     if (contadorPaginacao !== maxIf) {
+        //         contadorPaginacao++;
+        //         carregarProximos();
+        //     } else {
+        //         console.log('não entrou diabeira!');
+        //     }
+        // }
 
-        $scope.retrocederPaginacao = function() {
-            if (contadorPaginacao > 1) {
-                contadorPaginacao--;
-                carregarProximos();
-            }
-        }
+        // $scope.retrocederPaginacao = function() {
+        //     if (contadorPaginacao > 1) {
+        //         contadorPaginacao--;
+        //         carregarProximos();
+        //     }
+        // }
 
-        var carregarProximos = function() {
+        // var carregarProximos = function() {
+        //     var tamanhoImagens = $scope.imagens.length;
 
-            contadorMax = $scope.imagens.length / 4;
+        //     contadorMax = tamanhoImagens / 4;
 
-            if($scope.imagens.length % 4 != 0){
-                contatorMax = parseInt(contadorMax);
-                contadorMax = parseInt(contadorMax++);
-            }
+        //     if(tamanhoImagens % 4 != 0){
+        //         contadorMax++;
+        //     }
 
-            var i = (contadorPaginacao * 4) - 4;
-            var max = i + 4;
+        //     var i = (contadorPaginacao * 4) - 4;
+        //     var max = i + 4;
 
-            $scope.imagensExibicao = [];
+        //     if(max >= tamanhoImagens){
+        //         max = tamanhoImagens;
+        //     }
 
-            for (i; i < max; i++) {
-                $scope.imagensExibicao.push($scope.imagens[i]);
-            };
-        };
+        //     $scope.imagensExibicao = [];
+
+        //     for (i; i < max; i++) {
+        //         $scope.imagensExibicao.push($scope.imagens[i]);
+        //     };
+        // };
 
 
-        carregarProximos();
+        // carregarProximos();
 
     });
