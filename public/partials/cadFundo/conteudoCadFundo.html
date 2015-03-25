@@ -25,7 +25,32 @@
 							</div>
 							<div class="panel-body">
 								
-								<ng-include src="'partials/cadFundo/quadrinhosFundo.html'">sdsf</ng-include>
+								<div class="row" >
+									<div class="col-md-6" ng-repeat="valor in imagensExibicao">
+										<a href="" ng-click="mudarImagem(valor)" class="thumbnail">
+											<img src="{{valor.img}}" class="objeto-selecao" alt="{{valor.name}}">
+										</a>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-md-offset-3">
+										
+										<nav>
+											<ul class="pager">
+												<li class="previous">
+													<a href="" ng-click="retrocederPaginacao()">
+														<span aria-hidden="true">&larr;</span> Anteriores
+													</a>
+												</li>
+												<li class="next">
+													<a href="" ng-click="avancarPaginacao()">Próximos <span aria-hidden="true">&rarr;</span>
+													</a>
+												</li>
+											</ul>
+										</nav>
+										
+									</div>
+								</div>
 							</div>
 							
 						</div>
