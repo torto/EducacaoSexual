@@ -56,53 +56,6 @@ angular.module('jogo').controller('CadFundoController',
             array: 'imagens',
             imageTrocar:'imgFundo',
             arrayQuadros: 'imagensExibicao'
-        })
-
-        // $scope.mudarImagem = function(image) {
-        //     $scope.imgFundo = image;
-        // }
-
-        // $scope.avancarPaginacao = function() {
-        //     var maxIf = contadorMax | 0
-        //     if (contadorPaginacao !== maxIf) {
-        //         contadorPaginacao++;
-        //         carregarProximos();
-        //     } else {
-        //         console.log('não entrou diabeira!');
-        //     }
-        // }
-
-        // $scope.retrocederPaginacao = function() {
-        //     if (contadorPaginacao > 1) {
-        //         contadorPaginacao--;
-        //         carregarProximos();
-        //     }
-        // }
-
-        // var carregarProximos = function() {
-        //     var tamanhoImagens = $scope.imagens.length;
-
-        //     contadorMax = tamanhoImagens / 4;
-
-        //     if(tamanhoImagens % 4 != 0){
-        //         contadorMax++;
-        //     }
-
-        //     var i = (contadorPaginacao * 4) - 4;
-        //     var max = i + 4;
-
-        //     if(max >= tamanhoImagens){
-        //         max = tamanhoImagens;
-        //     }
-
-        //     $scope.imagensExibicao = [];
-
-        //     for (i; i < max; i++) {
-        //         $scope.imagensExibicao.push($scope.imagens[i]);
-        //     };
-        // };
-
-
-        // carregarProximos();
+        });
 
     });

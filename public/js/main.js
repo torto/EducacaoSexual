@@ -5,6 +5,11 @@ angular.module('jogo', ['ngRoute', 'ngResource']).config(function($routeProvider
 		controller: 'PrincipalController'
 	});
 
+	$routeProvider.when('/novoQuadrinho', {
+		templateUrl: 'partials/quadrinho/novoQuadrinho.html',
+		controller: 'NovoQuadrinhoController'
+	});
+
 	$routeProvider.when('/cadFundo', {
 		templateUrl: 'partials/cadFundo/cadFundo.html',
 		controller: 'CadFundoController'
