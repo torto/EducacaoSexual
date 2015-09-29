@@ -1,20 +1,24 @@
 angular.module('jogo').controller('CadFundoController',
-    function($scope, $resource, $routeParams, initPage, PaginacaoService) {
+    function($scope, $resource, $routeParams, $location, initPage, PaginacaoService, NovaHistoria, Inserts) {
 
         // Contrutor ------
         // ----------------
-
-        
-
+        $scope.historia = NovaHistoria.getHistoria();
         // ----------------
 
         var init = {
-            titulo: 'Escolha seu fundo',
+            titulo: 'Criar História',
             menu: 'criarQuadrinho'
-        }
+        };
 
         initPage.pageCompleta($scope, init);
 
+        $scope.salvarHistoria = function(){
+          NovaHistoria.setHistoria($scope.historia);
+          Inserts.inserirHistoria($scope.historia, function(){
+            $location.url("/cadCena");
+          });
+        };
 
         $scope.imagens = [{
             name: "Sala",

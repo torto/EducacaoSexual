@@ -1,5 +1,5 @@
 angular.module('jogo', ['ngRoute', 'ngResource']).config(function($routeProvider) {
-	
+
 	$routeProvider.when('/principal', {
 		templateUrl: 'partials/principal.html',
 		controller: 'PrincipalController'
@@ -13,6 +13,14 @@ angular.module('jogo', ['ngRoute', 'ngResource']).config(function($routeProvider
 	$routeProvider.when('/cadFundo', {
 		templateUrl: 'partials/cadFundo/cadFundo.html',
 		controller: 'CadFundoController'
+	});
+	$routeProvider.when('/cadCena', {
+		templateUrl: 'partials/cadCena/cadCena.html',
+		controller: 'CadCenaController'
+	});
+	$routeProvider.when('/cadastro/editor', {
+		templateUrl: 'partials/cadastro/historia/editor.html',
+		controller: 'CadHistoriaEditor'
 	});
 
 	$routeProvider.otherwise({redirectTo: '/principal'});

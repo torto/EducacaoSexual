@@ -1,0 +1,41 @@
+<link href="css/editor.css" rel="stylesheet" type="text/css">
+<div class="row" id="editor">
+  <div class="col-md-12" id="quadro-principal">
+    <div class="row principal">
+      <div class="col-md-3 sidebar">
+        <div class="row">
+          <div class="col-md-12 menu">
+            <scroll-horizontal valor="'horiz'">
+              <li data-ng-repeat="menu in menus" >
+                <a ng-href="{{menu.link}}">
+                  {{ menu.label }}
+                </a>
+                </li>
+          </scroll-horizontal>
+        </div>
+      </div>
+
+      <div class="row" ng-show="{{subMenus.length}}">
+        <div class="col-md-12 sub-menu">b</div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 itens-thumb">
+          <itens-thumb data-lista="listathumb" />
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12 edicao">
+
+      </div>
+
+
+    </div>
+
+
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="row">
+  <div ng-show="{{lista.length}}" class="col-md-6 thumb-padding text-center" data-ng-repeat="elemento in lista">
+    <a href="#" class="thumbnail">
+      <img ng-src="{{elemento.image['300']['href']}}" alt="{{elemento.label}}">
+    <p>{{elemento.label}}</p>
+    </a>
+  </div>
+
+  <div ng-show="{{!lista.length}}" class="col-md-12 text-center">
+    <p>Nenhuma Imagem Econtrada!</p>
+
+  </div>
+</div>

@@ -1,0 +1,12 @@
+@Json de um historia criada
+{
+  id: 1,
+  tituloHistoria: "Teste um",
+  cenas: @cena type - []
+}
+
+@cena examplo de uma cena de uma historia
+{
+  nomeImage: "nomeImage",
+  img: "caminho/image"
+}

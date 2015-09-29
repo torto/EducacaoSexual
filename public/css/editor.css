@@ -1,0 +1,36 @@
+#editor {
+
+}
+#quadro-principal {
+  min-height: 500px;
+  max-height: 1000px;
+  margin-top: 5px;
+
+}
+#quadro-principal .principal{
+  background: #F7F7F7;
+  border: 1px solid #CBCCCC;
+}
+#quadro-principal .principal .sidebar {
+  height: 100%;
+  border-right: 1px solid #CBCCCC;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+#quadro-principal .principal .sidebar .menu {
+  border-bottom: 1px solid #CBCCCC;
+  -webkit-box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
+  -moz-box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
+  box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
+}
+
+#quadro-principal .principal .sidebar .menu ul li a{
+  padding-left: 10px;
+}
+
+#quadro-principal .principal .sidebar .sub-menu {
+  border-bottom: 1px solid #CBCCCC;
+  -webkit-box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
+  -moz-box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
+  box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
+}

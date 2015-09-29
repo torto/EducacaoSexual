@@ -7,8 +7,9 @@ module.exports = function(grunt) {
                     livereload: true,
                 }
             }
-        } // watch
+    }
     });
+    // require('load-grunt-tasks')(grunt);
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['watch']);
 };
