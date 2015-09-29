@@ -3,7 +3,8 @@ angular.module('jogo').controller('CadHistoriaEditor',
     // Contrutor ------
     // ----------------
     $scope.historia = {
-      nomeQuadrinho: "Sem nome"
+      nomeQuadrinho: "Sem nome",
+      fundo: null
     };
 
     $scope.trocarNomeQuadrinho = function(valor) {
@@ -38,6 +39,7 @@ angular.module('jogo').controller('CadHistoriaEditor',
     $scope.subMenus = [];
     $scope.listathumb = [{
       label: 'Quarto',
+      categoria: 'fundo',
       image: {
         "300": {
           href: '/img/300/fundos/quarto.jpg'
@@ -45,6 +47,7 @@ angular.module('jogo').controller('CadHistoriaEditor',
       }
     }, {
       label: 'Festa',
+      categoria: 'fundo',
       image: {
         "300": {
           href: '/img/300/fundos/festa.jpg'
@@ -52,6 +55,7 @@ angular.module('jogo').controller('CadHistoriaEditor',
       }
     }, {
       label: 'Banheiro',
+      categoria: 'fundo',
       image: {
         "300": {
           href: '/img/300/fundos/banheiro.jpg'
@@ -59,7 +63,22 @@ angular.module('jogo').controller('CadHistoriaEditor',
       }
     }];
 
+    $scope.elemento = null;
 
+    $scope.mudarElemento = function(elemento){
+      $scope.elemento = elemento;
+    }
 
+    $scope.adicionarElemento = function(){
+      var elemento = $scope.elemento;
+      if(elemento.categoria === 'fundo'){
+
+       $scope.$apply(function () {
+        $scope.historia.fundo = elemento;
+      });
+      } else {
+
+      }
+    }
 
   });

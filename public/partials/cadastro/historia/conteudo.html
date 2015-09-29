@@ -5,7 +5,7 @@
       <div class="col-md-3 sidebar">
         <div class="row">
           <div class="col-md-12 menu">
-            <scroll-horizontal valor="'horiz'">
+            <scroll-horizontal valor="'horiz'" >
               <li data-ng-repeat="menu in menus" >
                 <a ng-href="{{menu.link}}">
                   {{ menu.label }}
@@ -20,14 +20,14 @@
       </div>
       <div class="row">
         <div class="col-md-12 itens-thumb">
-          <itens-thumb data-lista="listathumb" />
+          <itens-thumb data-lista="listathumb" data-evento="mudarElemento" />
         </div>
       </div>
 
     </div>
     <div class="col-md-9">
     <div class="row">
-      <div class="col-md-12 edicao">
+      <div class="col-md-12 edicao" style="height: 95%; max-height: 500px;" ng-style="{'background-image':'url('+historia.fundo.image['300'].href+')'}" >
 
       </div>
 

@@ -5,7 +5,8 @@ angular.module('jogo').directive('itensThumb', function() {
         replace: false,
         transclude: true,
         scope:{
-          lista: '='
+          lista: '=',
+          evento: '='
         },
         link: function(scope, elem, attrs) {
 

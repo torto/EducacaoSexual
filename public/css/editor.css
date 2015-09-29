@@ -34,3 +34,18 @@
   -moz-box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
   box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
 }
+
+.draggable{
+  z-index: 9999;
+}
+
+.draggable-back {
+  -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:0.5s linear all;
+}
+
+.draggable-inner{
+  /*background-color: green;*/
+}

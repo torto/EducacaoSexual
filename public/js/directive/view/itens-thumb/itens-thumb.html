@@ -1,9 +1,9 @@
 <div class="row">
-  <div ng-show="{{lista.length}}" class="col-md-6 thumb-padding text-center" data-ng-repeat="elemento in lista">
-    <a href="#" class="thumbnail">
-      <img ng-src="{{elemento.image['300']['href']}}" alt="{{elemento.label}}">
-    <p>{{elemento.label}}</p>
-    </a>
+  <div ng-show="{{lista.length}}" class=" col-md-6 thumb-padding text-center" data-ng-repeat="elemento in lista" ng-mousedown="evento(elemento)">
+    <div class="thumbnail">
+      <img ng-src="{{elemento.image['300']['href']}}" alt="{{elemento.label}}" style="top:0px; left:0px;" class="draggable">
+      <p>{{elemento.label}}</p>
+    </div>
   </div>
 
   <div ng-show="{{!lista.length}}" class="col-md-12 text-center">
