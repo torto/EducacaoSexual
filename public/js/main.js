@@ -1,4 +1,4 @@
-angular.module('jogo', ['ngRoute', 'ngResource']).config(function($routeProvider) {
+angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).config(function($routeProvider) {
 
 	$routeProvider.when('/principal', {
 		templateUrl: 'partials/principal.html',

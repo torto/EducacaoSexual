@@ -90,10 +90,11 @@ angular.module('jogo').directive('edicao', function() {
         },
         ondrop: function(event) {
           // event.relatedTarget.textContent = 'Dropped';
+            scope.adicionarElemento();
         },
         ondropdeactivate: function(event) {
           // adicionarElemento();
-          scope.adicionarElemento();
+
         }
       });
 

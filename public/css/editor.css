@@ -1,13 +1,10 @@
-#editor {
-
-}
+#editor {}
 #quadro-principal {
   min-height: 500px;
   max-height: 1000px;
   margin-top: 5px;
-
 }
-#quadro-principal .principal{
+#quadro-principal .principal {
   background: #F7F7F7;
   border: 1px solid #CBCCCC;
 }
@@ -23,29 +20,43 @@
   -moz-box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
   box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
 }
-
-#quadro-principal .principal .sidebar .menu ul li a{
+#quadro-principal .principal .sidebar .menu ul li a {
   padding-left: 10px;
 }
-
 #quadro-principal .principal .sidebar .sub-menu {
   border-bottom: 1px solid #CBCCCC;
   -webkit-box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
   -moz-box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
   box-shadow: 1px 0px 0px 0px rgba(203, 204, 204, 1);
 }
-
-.draggable{
+.draggable {
   z-index: 9999;
 }
-
 .draggable-back {
-  -webkit-transition:0.5s linear all;
-    -moz-transition:0.5s linear all;
-    -o-transition:0.5s linear all;
-    transition:0.5s linear all;
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
 }
-
-.draggable-inner{
+.draggable-inner {
   /*background-color: green;*/
+}
+#navcontainer ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+#navcontainer ul li {
+  display: inline;
+}
+#navcontainer ul li a {
+  text-decoration: none;
+  padding: .2em 1em;
+  color: #fff;
+  background-color: #3D5672;
+}
+#navcontainer ul li a:hover {
+  color: #fff;
+  background-color: #369;
 }

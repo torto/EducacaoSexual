@@ -5,35 +5,41 @@
       <div class="col-md-3 sidebar">
         <div class="row">
           <div class="col-md-12 menu">
-            <scroll-horizontal valor="'horiz'" >
-              <li data-ng-repeat="menu in menus" >
-                <a ng-href="{{menu.link}}">
-                  {{ menu.label }}
-                </a>
-                </li>
+            <scroll-horizontal valor="'horiz'">
+            <li data-ng-repeat="menu in menus">
+              <a ng-click="alterarSubMenu(menu.label)">
+                {{ menu.label }}
+              </a>
+            </li>
           </scroll-horizontal>
         </div>
       </div>
 
-      <div class="row" ng-show="{{subMenus.length}}">
-        <div class="col-md-12 sub-menu">b</div>
+      <div class="row" ng-show="subMenus.length">
+        <div class="col-md-12 sub-menu" id="navcontainer">
+
+          <ul>
+            <li ng-repeat="menu in subMenus[0].menus">
+              <a  ng-click="selecionarSubMenu(menu)" >
+                {{menu.label}}
+              </a>
+            </li>
+          </ul>
+
+        </div>
       </div>
       <div class="row">
         <div class="col-md-12 itens-thumb">
-          <itens-thumb data-lista="listathumb" data-evento="mudarElemento" />
+          <itens-thumb data-evento="mudarElemento" data-lista="listathumb"/>
         </div>
       </div>
 
     </div>
     <div class="col-md-9">
-    <div class="row">
-      <div class="col-md-12 edicao" style="height: 95%; max-height: 500px;" ng-style="{'background-image':'url('+historia.fundo.image['300'].href+')'}" >
+      <div class="row">
+        <div class="col-md-12 edicao" ng-style="{'background-image':'url('+historia.fundo.image['300'].href+')'}" style="height: 95%; max-height: 500px; background:white;"></div>
 
       </div>
-
-
-    </div>
-
 
     </div>
   </div>
