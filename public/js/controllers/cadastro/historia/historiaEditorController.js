@@ -164,7 +164,7 @@ angular.module('jogo').controller('CadHistoriaEditor',
         $scope.$apply(function() {
           $scope.historia.fundo = elemento;
         });
-      } else if(elemento.categoria === 'personagem') {
+      } else if (elemento.categoria === 'personagem') {
 
         $scope.elementoSelecionado = {
           nomeElemento: 'Ana Carla',
@@ -179,19 +179,32 @@ angular.module('jogo').controller('CadHistoriaEditor',
     };
 
 
-    $scope.openModalPersonagem = function (size) {
+    $scope.openModalPersonagem = function(size) {
 
-    var modalInstance = $modal.open({
-      animation: true,
-      templateUrl: '/partials/cadastro/historia/modal-personagem.html',
-      size: size
-    });
-
-    // modalInstance.result.then(function (selectedItem) {
-    //   $scope.selected = selectedItem;
-    // }, function () {
-    //   $log.info('Modal dismissed at: ' + new Date());
-    // });
-  };
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: '/partials/cadastro/historia/modal-personagem.html',
+        size: size,
+        controller: 'ModalInstanceCtrl',
+        resolve: {
+          elemento: function() {
+            return $scope.elementoSelecionado;
+          }
+        }
+      });
+    };
 
   });
+
+angular.module('jogo').controller('ModalInstanceCtrl', function($scope, $modalInstance, elemento) {
+
+    $scope.elementoSelecionado = elemento;
+
+  $scope.ok = function() {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function() {
+    $modalInstance.dismiss('cancel');
+  };
+});

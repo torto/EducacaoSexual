@@ -5,19 +5,6 @@ angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).c
 		controller: 'PrincipalController'
 	});
 
-	$routeProvider.when('/novoQuadrinho', {
-		templateUrl: 'partials/quadrinho/novoQuadrinho.html',
-		controller: 'NovoQuadrinhoController'
-	});
-
-	$routeProvider.when('/cadFundo', {
-		templateUrl: 'partials/cadFundo/cadFundo.html',
-		controller: 'CadFundoController'
-	});
-	$routeProvider.when('/cadCena', {
-		templateUrl: 'partials/cadCena/cadCena.html',
-		controller: 'CadCenaController'
-	});
 	$routeProvider.when('/cadastro/editor', {
 		templateUrl: 'partials/cadastro/historia/editor.html',
 		controller: 'CadHistoriaEditor'

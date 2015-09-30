@@ -1,10 +1,25 @@
 <div class="modal-header">
-            <h3 class="modal-title">Edição de Personagem</h3>
-        </div>
-        <div class="modal-body">
-          
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
+  <h3 class="modal-title">Edição de Personagem</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-3">
+      <img ng-src="{{elementoSelecionado.image.image['300'].href}}" alt="" class="img-responsive" style="max-height: 450px; margin:0 auto;" />
+    </div>
+    <div class="col-md-9">
+      <tabset justified="true">
+        <tab heading="Justified">Justified content</tab>
+        <tab heading="SJ">Short Labeled Justified content</tab>
+        <tab heading="Long Justified">Long Labeled Justified content</tab>
+      </tabset>
+    </div>
+  </div>
+
+
+
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
