@@ -1,5 +1,5 @@
 angular.module('jogo').controller('CadHistoriaEditor',
-  function($scope, $resource, $routeParams, $location, $modal, initPage, PaginacaoService, Inserts) {
+  function($scope, $resource, $routeParams, $location, $modal, initPage, PaginacaoService, Inserts, MenuArrayService) {
     // Contrutor ------
     var valorMenuPrincipal = 'Fundos';
 
@@ -25,53 +25,6 @@ angular.module('jogo').controller('CadHistoriaEditor',
       complementos: []
     };
 
-
-    var fundo = [{
-      label: 'Quarto',
-      categoria: 'fundo',
-      image: {
-        "300": {
-          href: '/img/300/fundos/quarto.jpg'
-        }
-      }
-    }, {
-      label: 'Festa',
-      categoria: 'fundo',
-      image: {
-        "300": {
-          href: '/img/300/fundos/festa.jpg'
-        }
-      }
-    }, {
-      label: 'Banheiro',
-      categoria: 'fundo',
-      image: {
-        "300": {
-          href: '/img/300/fundos/banheiro.jpg'
-        }
-      }
-    }];
-
-    var personagem = [{
-      label: 'Adolescente',
-      categoria: 'personagem',
-      subcategoria: 'masculino',
-      image: {
-        "300": {
-          href: '/img/300/personagens/homem/corpo/adolescente.png'
-        }
-      }
-    }, {
-      label: 'Criança',
-      categoria: 'personagem',
-      subcategoria: 'masculino',
-      image: {
-        "300": {
-          href: '/img/300/personagens/homem/corpo/crianca.png'
-        }
-      }
-    }];
-
     $scope.historia = {
       nomeQuadrinho: "Sem nome",
       fundo: null,
@@ -91,33 +44,18 @@ angular.module('jogo').controller('CadHistoriaEditor',
 
     initPage.pageCompleta($scope, init);
 
-    $scope.menus = [{
-      link: '',
-      label: 'Fundos'
-    }, {
-      link: '#',
-      label: 'Personagens'
-    }];
-
-    var subMenus = [{
-      label: 'Personagens',
-      menus: [{
-        label: 'Masculino',
-        link: '#'
-      }, {
-        label: 'Feminino',
-        link: '#'
-      }]
-    }];
+    $scope.menus = MenuArrayService.menuPrincipal();
 
     $scope.subMenus = [];
 
-    $scope.listathumb = fundo;
+    $scope.listathumb = MenuArrayService.listaFundos();
+
+    $scope.menusOpcaoPersonagens = [];
 
     $scope.selecionarSubMenu = function(valor) {
       var novoThumb = [];
       if (valorMenuPrincipal.toLowerCase() == 'personagens') {
-        novoThumb = personagem.filter(function(obj) {
+        novoThumb = MenuArrayService.listaPersonagens().filter(function(obj) {
           var retorno = false;
           if (obj.subcategoria) {
             if (obj.subcategoria.toLowerCase() === valor.label.toLowerCase()) {
@@ -134,11 +72,13 @@ angular.module('jogo').controller('CadHistoriaEditor',
     };
 
     $scope.alterarSubMenu = function(valor) {
+      var subMenus = [];
       valorMenuPrincipal = valor;
       if (valor === 'Personagens') {
-        $scope.listathumb = personagem;
+        $scope.listathumb = MenuArrayService.listaPersonagens();
+        subMenus = MenuArrayService.personagemSubMenu();
       } else if (valor === 'Fundos') {
-        $scope.listathumb = fundo;
+        $scope.listathumb = MenuArrayService.listaFundos();
       }
 
       var novoMenu = subMenus.filter(function(obj) {
@@ -158,8 +98,9 @@ angular.module('jogo').controller('CadHistoriaEditor',
       $scope.elemento = elemento;
     };
 
-    $scope.adicionarElemento = function() {
+    $scope.adicionarElemento = function(event) {
       var elemento = $scope.elemento;
+      var target = event.target;
       if (elemento.categoria === 'fundo') {
         $scope.$apply(function() {
           $scope.historia.fundo = elemento;
@@ -174,10 +115,15 @@ angular.module('jogo').controller('CadHistoriaEditor',
           complementos: []
         };
 
+        $scope.menusOpcaoPersonagens = MenuArrayService.personagemEdicaoMenu(elemento.tipo);
+
         $scope.openModalPersonagem('lg');
       }
     };
 
+    $scope.adicionarElementoSelecionadoQuadro = function(){
+      $scope.historia.elementos.push($scope.elementoSelecionado);
+    };
 
     $scope.openModalPersonagem = function(size) {
 
@@ -188,20 +134,39 @@ angular.module('jogo').controller('CadHistoriaEditor',
         controller: 'ModalInstanceCtrl',
         resolve: {
           elemento: function() {
-            return $scope.elementoSelecionado;
+            return $scope;
           }
         }
       });
     };
 
+    $scope.mudarComplementoImagem = function(elemento) {
+
+      var categoria = elemento.tipo ? elemento.tipo : elemento;
+
+      $scope.elementoSelecionado.complementos = $scope.elementoSelecionado.complementos.filter(function(obj) {
+        if (obj.elemento.tipo === categoria) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+
+      $scope.elementoSelecionado.complementos.push({
+        label: categoria,
+        elemento: elemento
+      });
+    };
+
   });
+
 
 angular.module('jogo').controller('ModalInstanceCtrl', function($scope, $modalInstance, elemento) {
 
-    $scope.elementoSelecionado = elemento;
+  $scope.principal = elemento;
 
   $scope.ok = function() {
-    $modalInstance.close($scope.selected.item);
+    $scope.principal.adicionarElementoSelecionadoQuadro();
   };
 
   $scope.cancel = function() {

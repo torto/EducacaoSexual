@@ -20,7 +20,7 @@
 
           <ul>
             <li ng-repeat="menu in subMenus[0].menus">
-              <a  ng-click="selecionarSubMenu(menu)" >
+              <a ng-click="selecionarSubMenu(menu)">
                 {{menu.label}}
               </a>
             </li>
@@ -38,6 +38,15 @@
     <div class="col-md-9">
       <div class="row">
         <div class="col-md-12 edicao" ng-style="{'background-image':'url('+historia.fundo.image['300'].href+')'}" style="height: 95%; max-height: 500px; background:white;"></div>
+
+        <div ng-repeat="valor in historia.elementos" ng-style="{'top': valor.x, 'left': valor.y}" style="max-height: 500px;">
+
+          <img alt="" class="img-responsive" ng-src="{{valor.image.image['300'].href}}" style="position: absolute;top:0; left:0; overflow: auto;display: block; max-width:100%;max-height: 100%;"/>
+          <img alt="" class="img-responsive" ng-repeat="complementos in valor.complementos" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0; overflow: auto;display: block;max-width:100%;max-height: 100%;"/>
+
+
+        </div>
+
 
       </div>
 

@@ -60,10 +60,6 @@ angular.module('jogo').directive('edicao', function() {
       // this is used later in the resizing demo
       window.dragMoveListener = dragMoveListener;
 
-
-
-
-
       // enable draggables to be dropped into this
       interact('.edicao').dropzone({
         // only accept elements matching this CSS selector
@@ -90,7 +86,7 @@ angular.module('jogo').directive('edicao', function() {
         },
         ondrop: function(event) {
           // event.relatedTarget.textContent = 'Dropped';
-            scope.adicionarElemento();
+            scope.adicionarElemento(event);
         },
         ondropdeactivate: function(event) {
           // adicionarElemento();

@@ -4,22 +4,46 @@
 <div class="modal-body">
   <div class="row">
     <div class="col-md-3">
-      <img ng-src="{{elementoSelecionado.image.image['300'].href}}" alt="" class="img-responsive" style="max-height: 450px; margin:0 auto;" />
+      <img alt="" class="img-responsive" ng-src="{{principal.elementoSelecionado.image.image['300'].href}}" style="max-height: 450px; margin:0 auto;position: relative;"/>
+      <img alt="" class="img-responsive" ng-repeat="complementos in principal.elementoSelecionado.complementos" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0;margin-left:50%; left: 50%;transform: translateX(-50%);max-height: 450px; overflow: auto;margin: auto;display: block;"/>
     </div>
     <div class="col-md-9">
       <tabset justified="true">
-        <tab heading="Justified">Justified content</tab>
-        <tab heading="SJ">Short Labeled Justified content</tab>
-        <tab heading="Long Justified">Long Labeled Justified content</tab>
+        <tab data-ng-repeat="elemento in principal.menusOpcaoPersonagens" heading="{{elemento.label}}">
+          <div class="row">
+
+            <div class=" col-md-3 thumb-padding text-center" ng-click="principal.mudarComplementoImagem(elemento.tipo)">
+              <div class="thumbnail">
+                <div class="">
+                  <img alt="Remover Elemento" class="img-responsive" src="/img/outros/stop.png" style="top:0px; left:0px; max-height: 82px; margin:0 auto;">
+                </div>
+
+                <p style="margin-top:5px;">
+                  <b>Sem elemento</b>
+                </p>
+              </div>
+            </div>
+
+            <div class=" col-md-3 thumb-padding text-center" data-ng-repeat="menu in elemento.elementos" ng-click="principal.mudarComplementoImagem(menu)">
+              <div class="thumbnail">
+                <div class="">
+                  <img alt="{{menu.label}}" class="img-responsive" ng-src="{{menu.image['thumb']['href']}}" style="top:0px; left:0px; max-height: 82px; margin:0 auto;">
+                </div>
+
+                <p style="margin-top:5px;">
+                  <b>{{menu.label}}</b>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </tab>
       </tabset>
     </div>
   </div>
 
-
-
-
 </div>
 <div class="modal-footer">
-  <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-  <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+  <button class="btn btn-primary" ng-click="ok()" type="button">OK</button>
+  <button class="btn btn-warning" ng-click="cancel()" type="button">Cancel</button>
 </div>

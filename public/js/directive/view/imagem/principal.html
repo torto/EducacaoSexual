@@ -1,0 +1,7 @@
+<div ng-repeat="historia in elemento.elementos" style="position:relative" ng-style={top: elemento.x, left: elemento.y}>
+
+  <img alt="" class="img-responsive" ng-src="{{historia.image.image['300'].href}}" style="margin:0 auto;position: relative;"/>
+  <img alt="" class="img-responsive" ng-repeat="complementos in historia.complementos" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0;margin-left:50%; left: 50%;transform: translateX(-50%); overflow: auto;margin: auto;display: block;"/>
+
+
+</div>
