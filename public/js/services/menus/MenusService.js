@@ -42,6 +42,9 @@ angular.module('jogo').factory('MenuArrayService', function() {
         image: {
           "300": {
             href: '/img/300/fundos/quarto.jpg'
+          },
+          "800": {
+            href: '/img/800/fundos/quarto.jpg'
           }
         }
       }, {
@@ -51,6 +54,9 @@ angular.module('jogo').factory('MenuArrayService', function() {
         image: {
           "300": {
             href: '/img/300/fundos/festa.jpg'
+          },
+          "800": {
+            href: '/img/800/fundos/festa.jpg'
           }
         }
       }, {
@@ -60,6 +66,9 @@ angular.module('jogo').factory('MenuArrayService', function() {
         image: {
           "300": {
             href: '/img/300/fundos/banheiro.jpg'
+          },
+          "800": {
+            href: '/img/800/fundos/banheiro.jpg'
           }
         }
       }];

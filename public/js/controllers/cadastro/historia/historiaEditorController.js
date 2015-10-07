@@ -1,8 +1,8 @@
 angular.module('jogo').controller('CadHistoriaEditor',
-  function($scope, $resource, $routeParams, $location, $modal, initPage, PaginacaoService, Inserts, MenuArrayService) {
+  function($scope, $resource, $routeParams, $location, $modal, initPage, PaginacaoService, Inserts, MenuArrayService, getController) {
     // Contrutor ------
     var valorMenuPrincipal = 'Fundos';
-
+    getController.setCadHistoria($scope);
     $scope.tituloQuadro = {
       templateUrl: '/partials/cadastro/historia/editName.html',
     };
@@ -99,6 +99,7 @@ angular.module('jogo').controller('CadHistoriaEditor',
     };
 
     $scope.adicionarElemento = function(event) {
+      $scope.historia.widthc= document.querySelector('.edicao').clientWidth;
       var elemento = $scope.elemento;
       var target = event.target;
       if (elemento.categoria === 'fundo') {
@@ -109,8 +110,8 @@ angular.module('jogo').controller('CadHistoriaEditor',
 
         $scope.elementoSelecionado = {
           nomeElemento: 'Ana Carla',
-          x: 0,
-          y: 0,
+          transform:'translate(0px,0px)',
+          height: 100,
           image: elemento,
           complementos: []
         };
@@ -121,7 +122,7 @@ angular.module('jogo').controller('CadHistoriaEditor',
       }
     };
 
-    $scope.adicionarElementoSelecionadoQuadro = function(){
+    $scope.adicionarElementoSelecionadoQuadro = function() {
       $scope.historia.elementos.push($scope.elementoSelecionado);
     };
 
@@ -167,6 +168,7 @@ angular.module('jogo').controller('ModalInstanceCtrl', function($scope, $modalIn
 
   $scope.ok = function() {
     $scope.principal.adicionarElementoSelecionadoQuadro();
+    $modalInstance.dismiss('cancel');
   };
 
   $scope.cancel = function() {
