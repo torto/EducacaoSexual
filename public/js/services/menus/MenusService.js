@@ -97,6 +97,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           label: 'Chorando',
           categoria: 'personagem',
           subcategoria: 'masculino',
+          tipoPrincipal: 'feicao',
           tipo: 'feicao',
           personagem: 'crianca',
           image: {
@@ -111,6 +112,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           label: 'Assustado',
           categoria: 'personagem',
           subcategoria: 'masculino',
+          tipoPrincipal: 'feicao',
           tipo: 'feicao',
           personagem: 'crianca',
           image: {
@@ -125,6 +127,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           label: 'Bravo',
           categoria: 'personagem',
           subcategoria: 'masculino',
+          tipoPrincipal: 'feicao',
           tipo: 'feicao',
           personagem: 'crianca',
           image: {
@@ -139,6 +142,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           label: 'Envergonhado',
           categoria: 'personagem',
           subcategoria: 'masculino',
+          tipoPrincipal: 'feicao',
           tipo: 'feicao',
           personagem: 'crianca',
           image: {
@@ -153,6 +157,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           label: 'Feliz',
           categoria: 'personagem',
           subcategoria: 'masculino',
+          tipoPrincipal: 'feicao',
           tipo: 'feicao',
           personagem: 'crianca',
           image: {
@@ -167,6 +172,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           label: 'Triste',
           categoria: 'personagem',
           subcategoria: 'masculino',
+          tipoPrincipal: 'feicao',
           tipo: 'feicao',
           personagem: 'crianca',
           image: {
@@ -189,6 +195,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           categoria: 'personagem',
           subcategoria: 'masculino',
           personagem: 'crianca',
+          tipoPrincipal: 'cabelo',
           tipo: 'cabelo',
           image: {
             300: {
@@ -203,6 +210,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           categoria: 'personagem',
           subcategoria: 'masculino',
           personagem: 'crianca',
+          tipoPrincipal: 'cabelo',
           tipo: 'cabelo',
           image: {
             300: {
@@ -218,13 +226,14 @@ angular.module('jogo').factory('MenuArrayService', function() {
         label: "Roupas",
         categoria: 'personagem',
         subcategoria: "masculino",
-        tipo: 'calca',
+        tipo: 'roupa',
         personagem: 'crianca',
         elementos: [{
           label: 'Calça',
           categoria: 'personagem',
           subcategoria: 'masculino',
           personagem: 'crianca',
+          tipoPrincipal: 'roupa',
           tipo: 'calca',
           image: {
             300: {
@@ -239,6 +248,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
           categoria: 'personagem',
           subcategoria: 'masculino',
           personagem: 'crianca',
+          tipoPrincipal: 'roupa',
           tipo: 'calca',
           image: {
             300: {
@@ -254,6 +264,7 @@ angular.module('jogo').factory('MenuArrayService', function() {
         categoria: 'personagem',
         subcategoria: 'masculino',
         personagem: 'crianca',
+        tipoPrincipal: 'roupa',
         tipo: 'camiseta',
         image: {
           300: {

@@ -1,9 +1,10 @@
 var http = require('http');
 var app = require('./config/express')();
 var spawn = require('child_process').spawn;
-var cp = spawn('grunt',['--force']).on('error', function (err) {
-  console.log('Failed to start child process.');
-  cp = spawn(process.env.comspec, ['/c', 'grunt']);
+var cp;
+cp = spawn('grunt',['--force']).on('error', function (err) {
+  console.log('Erro do windows');
+  cp = spawn(process.env.comspec, ['/c', 'grunt']).on('error', function (err) {console.log('Error');});
 });
 
 cp.stdout.on("data", function(data) {

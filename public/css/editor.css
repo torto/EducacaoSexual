@@ -67,10 +67,12 @@
 @media screen and (min-width: 500px) {
   .edicao {
     width: 800px !important;
+    height: 600px !important;
   }
 }
 @media screen and (min-width: 1352px) {
   .edicao {
     width: 800px !important;
+    height: 600px !important;
   }
 }

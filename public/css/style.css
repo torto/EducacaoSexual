@@ -825,7 +825,7 @@ h3.panel-title {
 /*----------------------------*/
 
 .edicao {
-  border: 3px solid #A9A9A9;
+  outline: 3px solid #A9A9A9;
   margin-top: 10px;
 }
 .edicao img.fundoQuadro {

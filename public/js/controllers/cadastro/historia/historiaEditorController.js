@@ -1,8 +1,7 @@
 angular.module('jogo').controller('CadHistoriaEditor',
-  function($scope, $resource, $routeParams, $location, $modal, initPage, PaginacaoService, Inserts, MenuArrayService, getController) {
+  function($scope, $resource, $routeParams, $location, $modal, initPage, PaginacaoService, Inserts, MenuArrayService) {
     // Contrutor ------
     var valorMenuPrincipal = 'Fundos';
-    getController.setCadHistoria($scope);
     $scope.tituloQuadro = {
       templateUrl: '/partials/cadastro/historia/editName.html',
     };
@@ -141,17 +140,32 @@ angular.module('jogo').controller('CadHistoriaEditor',
       });
     };
 
+    $scope.trocaElementoSelecionado = function(id){
+      $scope.elementoSelecionado = $scope.historia.elementos[id];
+    }
+
     $scope.mudarComplementoImagem = function(elemento) {
 
-      var categoria = elemento.tipo ? elemento.tipo : elemento;
+      var categoria = elemento.tipo ? elemento.tipo : '';
+      var principal = elemento.tipo ? '' : elemento;
 
+      if(categoria){
       $scope.elementoSelecionado.complementos = $scope.elementoSelecionado.complementos.filter(function(obj) {
-        if (obj.elemento.tipo === categoria) {
+        if (obj.elemento.tipo === categoria ) {
           return false;
         } else {
           return true;
         }
       });
+    } else {
+      $scope.elementoSelecionado.complementos = $scope.elementoSelecionado.complementos.filter(function(obj) {
+        if (obj.elemento.tipoPrincipal === principal) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+    }
 
       $scope.elementoSelecionado.complementos.push({
         label: categoria,
