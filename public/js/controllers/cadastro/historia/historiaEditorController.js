@@ -169,6 +169,17 @@ angular.module('jogo').controller('CadHistoriaEditor',
       });
     };
 
+    $scope.templateObjeto = '';
+
+    $scope.selecionarTemplateSelecao = function(valor){
+      var template = '/partials/cadastro/historia/templates/';
+      if(valor == 'crianca'){
+        $scope.templateObjeto = template+'personagem-padrao.html'
+      }
+
+
+    };
+
   });
 
 
