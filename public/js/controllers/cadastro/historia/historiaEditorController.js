@@ -140,10 +140,6 @@ angular.module('jogo').controller('CadHistoriaEditor',
       });
     };
 
-    $scope.trocaElementoSelecionado = function(id){
-      $scope.elementoSelecionado = $scope.historia.elementos[id];
-    }
-
     $scope.mudarComplementoImagem = function(elemento) {
 
       var categoria = elemento.tipo ? elemento.tipo : '';

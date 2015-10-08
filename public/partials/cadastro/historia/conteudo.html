@@ -37,9 +37,18 @@
     </div>
     <div class="col-md-9">
       <div class="row">
-        <div class="col-md-12 edicao" ng-style="{'background-image':'url('+historia.fundo.image['800'].href+')'}" style="height: 95%; min-height: 600px; background:white;padding: 0px;" >
+        <div class="col-md-12 edicao" ng-style="{'background-image':'url('+historia.fundo.image['800'].href+')'}" style="height: 95%; min-height: 600px; background:white;padding: 0px;">
+          <div class="selecao-click" style="width: 100%;height: 100%;position:absolute;"></div>
+          <div class="resize" data-posicao="{{$index}}" popover-placement="right" popover-template="tituloQuadro.templateUrl" popover-trigger="focus" tableindex="-1" elemento-selecionado="valor" ng-repeat="valor in historia.elementos" ng-style="{'transform': valor.transform, '-webkit-transform': valor.transform, '-ms-transform':valor.transform, 'height': valor.height+'%'}" style="max-height: 100%; margin: 0px !important; display:block;position:absolute;width:100%;padding: 3px;" tabindex="-1">
 
-          <div class="resize" data-posicao="{{$index}}" elemento-selecionado="valor" ng-repeat="valor in historia.elementos" ng-style="{'transform': valor.transform, '-webkit-transform': valor.transform, '-ms-transform':valor.transform, 'height': valor.height+'%'}" style="max-height: 100%; margin: 0px !important; display:block;position:absolute;width:100%;padding: 3px;" ng-click="trocaElementoSelecionado($index)">
+            <div class="elemento-edicao sumir" style="height: 100%; z-index:99">
+              <div class="quadro-marcacao quadrado-top-left"></div>
+              <div class="quadro-marcacao quadrado-top-right"></div>
+              <div class="quadro-marcacao quadrado-bottom-left"></div>
+              <div class="quadro-marcacao quadrado-bottom-right"></div>
+
+            </div>
+
             <img alt="" class="img-responsive resize-image" ng-src="{{valor.image.image['300'].href}}" style="position: absolute;top:0; left:0; overflow: auto;display: block; max-width:100%;max-height: 100%;"/>
             <img alt="" class="img-responsive" ng-repeat="complementos in valor.complementos" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0; overflow: auto;display: block;max-width:100%;max-height: 100%;"/>
           </div>

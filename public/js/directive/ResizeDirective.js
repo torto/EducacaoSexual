@@ -3,10 +3,16 @@ angular.module('jogo').directive('resize', function() {
     restrict: 'C',
     scope: false,
     link: function(scope, elem, attrs) {
+      // var resizeElemento = elem.find('.elemento-edicao');
+      // $(elem).attr("tabindex",-1).focus(function() {
+      //   $(resizeElemento).removeClass('sumir');
+      // });
+      // elem.focusout(function() {
+      //   resizeElemento.toggleClass('aparecer');
+      // });
 
-      /*elem.bind('mousedown', function(evt) { // <-- changed
-          scope.trocaElementoSelecionado(attrs.dataPosicao);
-      });*/
+      // $(elem).keypress()
+
 
       interact('.resize')
         .draggable({
@@ -75,7 +81,7 @@ angular.module('jogo').directive('resize', function() {
         var widthEdicao = document.querySelector('.edicao').clientWidth;
 
         scope.$apply(function() {
-            scope.historia.elementos[parseInt(target.getAttribute('data-posicao'))].transform = 'translate(' + x + 'px, ' + y + 'px)';
+          scope.historia.elementos[parseInt(target.getAttribute('data-posicao'))].transform = 'translate(' + x + 'px, ' + y + 'px)';
         });
 
         // update the posiion attributes

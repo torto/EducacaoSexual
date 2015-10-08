@@ -60,10 +60,57 @@
   color: #fff;
   background-color: #369;
 }
-.resize:hover, .resize:active {
-  outline: 1px solid #1605FF;
+
+.elemento-edicao {
+  outline: 1px solid red;
+  outline-offset: 3px;
+}
+.quadro-marcacao{
+  width: 6px;
+  height: 6px;
+  background: red;
+}
+.quadrado-top-left {
+  top: -3px;
+  left: -3px;
+  position: absolute;
+}
+.quadrado-top-right{
+  top: 0;
+  left: 100%;
+  position: absolute;
+  transform: translate(-3px, -3px);
+}
+.quadrado-top-right:hover, .quadrado-top-right:active{
+background: blue;
+}
+.quadrado-bottom-right{
+  top: 100%;
+  left: 100%;
+  position: absolute;
+  transform: translate(-3px, -3px);
+}
+.quadrado-bottom-left{
+  top: 100%;
+  left: 0;
+  position: absolute;
+  transform: translate(-3px, -3px);
+}
+.quadro-excluir{
+  top: 50%;
+  right: -25px;
+  position: absolute;
+}
+.espaco-botao-selecao{
+  padding: 3px;
 }
 
+.sumir{
+  display: none;
+}
+.sumir:hover{
+  display: block;
+}
 @media screen and (min-width: 500px) {
   .edicao {
     width: 800px !important;

@@ -3,6 +3,38 @@ angular.module('jogo').directive('edicao', function() {
     restrict: 'C',
     link: function(scope, elem, attrs) {
 
+      $(elem).on('keydown', '.resize', function(event) {
+        //console.log(event.keyCode);
+        if (event.keyCode === 46) {
+          var elemento = $(this);
+          scope.$apply(function(){
+            var posicao = elemento.data('posicao');
+            scope.historia.elementos.splice(posicao, 1);
+          });
+
+        }
+      });
+
+
+      $(".selecao-click").on('click', function(e) {
+        $('.elemento-edicao').each(function(i, obj) {
+          $(obj).addClass('sumir');
+          $(obj).blur();
+        });
+      });
+
+      $(elem).on('click', '.resize', function(e) {
+        $('.elemento-edicao').each(function(i, obj) {
+          $(obj).addClass('sumir');
+          $(obj).blur();
+        });
+        $(this).focus();
+
+        $(this).find('.elemento-edicao').removeClass('sumir');
+
+      });
+
+
       // target elements with the "draggable" class
       interact('.draggable')
         .draggable({
@@ -24,18 +56,18 @@ angular.module('jogo').directive('edicao', function() {
           onmove: dragMoveListener,
           // call this function on every dragend event
           onend: function(event) {
-              var target = event.target;
+            var target = event.target;
 
-              target.setAttribute('data-pass-x', event.dx);
-              target.setAttribute('data-pass-y', event.dy);
+            target.setAttribute('data-pass-x', event.dx);
+            target.setAttribute('data-pass-y', event.dy);
 
-              target.classList.add('draggable-back');
-              target.setAttribute('data-x', 0);
-              target.setAttribute('data-y', 0);
+            target.classList.add('draggable-back');
+            target.setAttribute('data-x', 0);
+            target.setAttribute('data-y', 0);
 
-              target.style.webkitTransform =
-                target.style.transform =
-                null;
+            target.style.webkitTransform =
+              target.style.transform =
+              null;
           }
         });
 
@@ -86,7 +118,7 @@ angular.module('jogo').directive('edicao', function() {
         },
         ondrop: function(event) {
           // event.relatedTarget.textContent = 'Dropped';
-            scope.adicionarElemento(event);
+          scope.adicionarElemento(event);
         },
         ondropdeactivate: function(event) {
           // adicionarElemento();
