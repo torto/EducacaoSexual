@@ -2,16 +2,64 @@ angular.module('jogo').directive('edicao', function() {
   return {
     restrict: 'C',
     link: function(scope, elem, attrs) {
+      var BAIXO = 40,
+        CIMA = 38,
+        ESQUERDA = 37,
+        DIREITA = 39,
+        DELETE = 46;
+
+
 
       $(elem).on('keydown', '.resize', function(event) {
-        //console.log(event.keyCode);
-        if (event.keyCode === 46) {
-          var elemento = $(this);
-          scope.$apply(function(){
-            var posicao = elemento.data('posicao');
+        var elemento = $(this);
+        var posicao = elemento.data('posicao');
+        var transform = scope.historia.elementos[posicao].transform;
+        var arrayValTemp = transform.split('translate(')[1].split(',');
+        var top = parseFloat(arrayValTemp[1].replace("px)", ""));
+        var lado = parseFloat(arrayValTemp[0].replace("px", ""));
+
+        if (event.keyCode === DELETE) {
+          scope.$apply(function() {
             scope.historia.elementos.splice(posicao, 1);
           });
-
+        } else if (event.keyCode === BAIXO) {
+          scope.$apply(function() {
+            top++;
+            if (top >= 0) {
+              scope.historia.elementos[posicao].transform = 'translate(' + lado + 'px, ' + top + 'px)';
+            }
+          });
+          event.preventDefault();
+        } else if (event.keyCode === CIMA) {
+          scope.$apply(function() {
+            top--;
+            if (top >= 0) {
+              scope.historia.elementos[posicao].transform = 'translate(' + lado + 'px, ' + top + 'px)';
+            } else {
+              top = 0;
+            }
+          });
+          event.preventDefault();
+        } else if (event.keyCode == DIREITA) {
+          scope.$apply(function() {
+            lado++;
+            if (lado >= 0) {
+              scope.historia.elementos[posicao].transform = 'translate(' + lado + 'px, ' + top + 'px)';
+            } else {
+              lado = 0;
+            }
+          });
+          event.preventDefault();
+        } else if (event.keyCode === ESQUERDA) {
+          scope.$apply(function() {
+            lado--;
+            if (lado >= 0) {
+              scope.historia.elementos[posicao].transform = 'translate(' + lado + 'px, ' + top + 'px)';
+            } else {
+              lado = 0;
+            }
+          });
+          event.preventDefault();
         }
       });
 
@@ -31,6 +79,11 @@ angular.module('jogo').directive('edicao', function() {
         $(this).focus();
 
         $(this).find('.elemento-edicao').removeClass('sumir');
+
+      });
+
+      $(elem).on('click', '.popover', function(e) {
+        $(this).focus();
 
       });
 
@@ -82,28 +135,19 @@ angular.module('jogo').directive('edicao', function() {
           target.style.transform =
           'translate(' + x + 'px, ' + y + 'px)';
 
+
         // update the posiion attributes
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
         target.classList.remove('draggable-back');
       }
 
-
-      // this is used later in the resizing demo
       window.dragMoveListener = dragMoveListener;
 
-      // enable draggables to be dropped into this
       interact('.edicao').dropzone({
-        // only accept elements matching this CSS selector
         accept: '.draggable',
-        // Require a 75% element overlap for a drop to be possible
         overlap: 0.75,
-
-        // listen for drop related events:
-
         ondropactivate: function(event) {
-          // add active dropzone feedback
-          // event.target.classList.add('drop-active');
         },
         ondragenter: function(event) {
 
@@ -111,17 +155,11 @@ angular.module('jogo').directive('edicao', function() {
 
         },
         ondragleave: function(event) {
-          // remove the drop feedback style
-          // event.target.classList.remove('drop-target');
-          // event.relatedTarget.classList.remove('can-drop');
-          // event.relatedTarget.textContent = 'Dragged out';
         },
         ondrop: function(event) {
-          // event.relatedTarget.textContent = 'Dropped';
           scope.adicionarElemento(event);
         },
         ondropdeactivate: function(event) {
-          // adicionarElemento();
 
         }
       });

@@ -3,16 +3,6 @@ angular.module('jogo').directive('resize', function() {
     restrict: 'C',
     scope: false,
     link: function(scope, elem, attrs) {
-      // var resizeElemento = elem.find('.elemento-edicao');
-      // $(elem).attr("tabindex",-1).focus(function() {
-      //   $(resizeElemento).removeClass('sumir');
-      // });
-      // elem.focusout(function() {
-      //   resizeElemento.toggleClass('aparecer');
-      // });
-
-      // $(elem).keypress()
-
 
       interact('.resize')
         .draggable({
@@ -68,15 +58,28 @@ angular.module('jogo').directive('resize', function() {
       }
 
       function dragMoveListener(event) {
-        var target = event.target,
-          // keep the dragged position in the data-x/data-y attributes
-          x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-          y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+        var target = event.target;
+        var  x = parseFloat(target.getAttribute('data-x')) ,
+          y = parseFloat(target.getAttribute('data-y'));
+        var posicao = target.getAttribute('data-posicao');
+        if (scope.historia.elementos[posicao]) {
+          var transform = scope.historia.elementos[posicao].transform;
+          var arrayValTemp = transform.split('translate(')[1].split(',');
+          var top = parseFloat(arrayValTemp[1].replace("px)", ""));
 
-        // translate the element
-        // target.style.webkitTransform =
-        //   target.style.transform =
-        //   'translate(' + x + 'px, ' + y + 'px)';
+
+
+          if (top != y) {
+            var lado = parseFloat(arrayValTemp[0].replace("px", ""));
+            target.setAttribute('data-x', top);
+            target.setAttribute('data-y', lado);
+            y = top;
+            x = lado;
+          }
+        }
+
+        x += event.dx;
+        y += event.dy;
 
         var widthEdicao = document.querySelector('.edicao').clientWidth;
 

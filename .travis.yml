@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- 0.10
+notifications:
+- tortoyoyo@gmail.com
+before_install:
+- npm install -g bower@1.3
+- npm install -g grunt-cli@0.1
+- npm install -g karma-cli@0.0
+- npm install -g protractor@1.5
+- webdriver-manager update
+- bower install
+before_script:
+- grunt
+- cd dist

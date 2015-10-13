@@ -6,6 +6,8 @@ var pessoas = [{
     img: 'negra.png'
 }];
 
+var sanitize = require('mongo-sanitize');// EVITAR SQL INJECT
+
 module.exports = function() {
     var controller = {};
 
@@ -14,7 +16,7 @@ module.exports = function() {
     };
 
     controller.obtemPessoa = function(req, res) {
-        var id = req.params.id;
+        var id = sanitize(req.params.id); // EVITAR SQL INJECT
         var pessoa = pessoas.filter(function(pessoa) {
             return pessoa._id == id;
         })[0];

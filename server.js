@@ -1,10 +1,12 @@
 var http = require('http');
 var app = require('./config/express')();
 var spawn = require('child_process').spawn;
+require('./config/passport.js')();
+require('./config/database.js')('mongodb://localhost/educacaosexual');
 var cp;
-cp = spawn('grunt',['--force']).on('error', function (err) {
+cp = spawn('grunt',['--force', 'dev']).on('error', function (err) {
   console.log('Erro do windows');
-  cp = spawn(process.env.comspec, ['/c', 'grunt']).on('error', function (err) {console.log('Error');});
+  cp = spawn(process.env.comspec, ['/c', 'grunt dev']).on('error', function (err) {console.log('Error');});
 });
 
 cp.stdout.on("data", function(data) {

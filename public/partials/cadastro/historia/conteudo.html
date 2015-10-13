@@ -1,62 +1,109 @@
 <!-- <link href="css/editor.css" rel="stylesheet" type="text/css"> -->
-<div class="row" id="editor">
-  <div class="col-md-12" id="quadro-principal">
-    <div class="row principal">
-      <div class="col-md-3 sidebar">
-        <div class="row">
-          <div class="col-md-12 menu">
-            <scroll-horizontal valor="'horiz'">
-            <li data-ng-repeat="menu in menus">
-              <a ng-click="alterarSubMenu(menu.label)">
-                {{ menu.label }}
-              </a>
-            </li>
-          </scroll-horizontal>
+<div class="row titulo">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="text-titulo">{{tituloPaginaTopo}}
+          <button class="btn btn-default" popover-is-open="tituloQuadro.aberto" popover-placement="right" popover-template="tituloQuadro.templateUrl" type="button">
+            <span aria-hidden="true" class="glyphicon glyphicon-edit"></button>
+          </p>
         </div>
-      </div>
 
-      <div class="row" ng-show="subMenus.length">
-        <div class="col-md-12 sub-menu" id="navcontainer">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-2">
+              <h5><b>Telas:</b></h5>
+            </div>
 
-          <ul>
-            <li ng-repeat="menu in subMenus[0].menus">
-              <a ng-click="selecionarSubMenu(menu)">
-                {{menu.label}}
-              </a>
-            </li>
-          </ul>
-
+            <div class="col-md-10">
+              <select class="form-control" ng-change="mudarQuadrinhoCriado(atualHistoria)" ng-model="atualHistoria" ng-options="lista as lista.nomeQuadrinho for lista in listaJaCriados track by lista.posicao">
+            <option value="">+ Nova Tela</option>
+          </select>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 itens-thumb">
-          <itens-thumb data-evento="mudarElemento" data-lista="listathumb"/>
         </div>
       </div>
 
     </div>
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-12 edicao" ng-style="{'background-image':'url('+historia.fundo.image['800'].href+')'}" style="height: 95%; min-height: 600px; background:white;padding: 0px;">
-          <div class="selecao-click" style="width: 100%;height: 100%;position:absolute;"></div>
-          <div class="resize" data-posicao="{{$index}}" popover-placement="right" popover-template="templateObjeto" ng-init="selecionarTemplateSelecao(valor.image.tipo)" popover-trigger="focus" tableindex="-1" elemento-selecionado="valor" ng-repeat="valor in historia.elementos" ng-style="{'transform': valor.transform, '-webkit-transform': valor.transform, '-ms-transform':valor.transform, 'height': valor.height+'%'}" style="max-height: 100%; margin: 0px !important; display:block;position:absolute;width:100%;padding: 3px;" tabindex="-1">
 
-            <div class="elemento-edicao sumir" style="height: 100%; z-index:99">
-              <div class="quadro-marcacao quadrado-top-left"></div>
-              <div class="quadro-marcacao quadrado-top-right"></div>
-              <div class="quadro-marcacao quadrado-bottom-left"></div>
-              <div class="quadro-marcacao quadrado-bottom-right"></div>
+    <div class="col-md-4">
+      <p class="text-right">Info Login</p>
+    </div>
+  </div>
 
-            </div>
+  <div class="row" id="editor">
+    <div class="col-md-12" id="quadro-principal">
+      <div class="row principal">
+        <div class="col-md-3 sidebar">
+          <div class="row">
+            <div class="col-md-12 menu">
+              <scroll-horizontal valor="'horiz'">
+              <li data-ng-repeat="menu in menus">
+                <a ng-click="alterarSubMenu(menu.label)">
+                  {{ menu.label }}
+                </a>
+              </li>
+            </scroll-horizontal>
+          </div>
+        </div>
 
-            <img alt="" class="img-responsive resize-image" ng-src="{{valor.image.image['300'].href}}" style="position: absolute;top:0; left:0; overflow: auto;display: block; max-width:100%;max-height: 100%;"/>
-            <img alt="" class="img-responsive" ng-repeat="complementos in valor.complementos" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0; overflow: auto;display: block;max-width:100%;max-height: 100%;"/>
+        <div class="row" ng-show="subMenus.length">
+          <div class="col-md-12 sub-menu" id="navcontainer">
+
+            <ul>
+              <li ng-repeat="menu in subMenus[0].menus">
+                <a ng-click="selecionarSubMenu(menu)">
+                  {{menu.label}}
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 itens-thumb">
+            <itens-thumb data-evento="mudarElemento" data-lista="listathumb"/>
           </div>
         </div>
 
       </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12 edicao" ng-style="{'background-image':'url('+historia.fundo.image['800'].href+')'}" style="height: 95%; min-height: 600px; background:white;padding: 0px;">
+            <div class="selecao-click" style="width: 100%;height: 100%;position:absolute;"></div>
+            <div class="resize" data-posicao="{{$index}}" ng-dblclick="editarElemento($index)" elemento-selecionado="valor" ng-init="selecionarTemplateSelecao(valor.image.tipo)" ng-repeat="valor in historia.elementos track by $index" ng-style="{'transform': valor.transform, '-webkit-transform': valor.transform, '-ms-transform':valor.transform, 'height': valor.height+'%'}" style="max-height: 100%; margin: 0px !important; display:block;position:absolute;width:100%;padding: 3px;outline:none;" tabindex="-1" >
 
+              <div class="elemento-edicao sumir" style="height: 100%; z-index:99">
+                <div class="quadro-marcacao quadrado-top-left"></div>
+                <div class="quadro-marcacao quadrado-top-right"></div>
+                <div class="quadro-marcacao quadrado-bottom-left"></div>
+                <div class="quadro-marcacao quadrado-bottom-right"></div>
+
+              </div>
+
+              <img alt="" class="img-responsive resize-image" ng-src="{{valor.image.image['300'].href}}" style="position: absolute;top:0; left:0; overflow: auto;display: block; max-width:100%;max-height: 100%;"/>
+              <img alt="" class="img-responsive" ng-repeat="complementos in valor.complementos" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0; overflow: auto;display: block;max-width:100%;max-height: 100%;"/>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12 sem-espaco">
+            <div aria-label="" class="btn-group btn-group-justified" role="group" style="margin-top: 10px; margin-bottom: 10px;">
+              <div class="btn-group" role="group">
+                <button class="btn btn-success" ng-click="adicionarQuadroAHistoria()" type="button">Salvar</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button class="btn btn-primary" ng-click="updateExistente(0)" type="button">Visualizar</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button class="btn btn-warning" type="button">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 </div>

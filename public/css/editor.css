@@ -62,13 +62,14 @@
 }
 
 .elemento-edicao {
-  outline: 1px solid red;
+  outline: 1px solid #00A8E2;
   outline-offset: 3px;
 }
 .quadro-marcacao{
-  width: 6px;
-  height: 6px;
-  background: red;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #3B00FF;
+  background-color: #C2E2FD;
 }
 .quadrado-top-left {
   top: -3px;

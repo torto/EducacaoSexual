@@ -17,6 +17,14 @@
 	<title>Jogo Educação Sexual</title>
 
 	<body>
+		<header id="top" class="row sem-espaco">
+			<!-- Cabeçalho -->
+			<div class="col-md-8"><p class="cor-fundo-escuro">Jogo Educação Sexual</p></div>
+			<%if (usuarioLogado.length > 0) { %>
+			<div class="col-md-4"><span class="cor-fundo-escuro"><%=usuarioLogado %> <a href="/logout">   Logout</a><span></div>
+				<% } %>
+		</header>
+
 
 		<div ng-view></div>
 		<!-- Modulo Angular -->
@@ -45,12 +53,14 @@
 		<script type="text/javascript" src="js/directive/ResizeDivPrincipalDirective.js"></script>
 
 		<!-- SERVICES -->
+		<script type="text/javascript" src="js/services/InterceptadorService.js"></script>
 		<script type="text/javascript" src="js/services/MenuService.js"></script>
 		<script type="text/javascript" src="js/services/TopoPaginaService.js"></script>
 		<script type="text/javascript" src="js/services/InitPageService.js"></script>
 		<script type="text/javascript" src="js/services/utils/PaginacaoService.js"></script>
 		<script type="text/javascript" src="js/services/banco/inserts.js"></script>
 		<script type="text/javascript" src="js/services/menus/MenusService.js"></script>
+		<script type="text/javascript" src="js/services/quadrinho/ControleQuadrinhoService.js"></script>
 
 		<!-- CONTROLLERS -->
 		<script type="text/javascript" src="js/controllers/PrincipalController.js"></script>
