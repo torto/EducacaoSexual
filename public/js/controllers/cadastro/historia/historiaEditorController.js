@@ -1,4 +1,4 @@
-angular.module('jogo').controller('CadHistoriaEditor',
+angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$routeParams', '$location', '$modal', '$rootScope', 'initPage', 'PaginacaoService', 'Inserts', 'MenuArrayService', 'ControleQuadrinho',
   function($scope, $resource, $routeParams, $location, $modal, $rootScope, initPage, PaginacaoService, Inserts, MenuArrayService, ControleQuadrinho) {
     $rootScope.clone = function clone(obj) {
       var copy;
@@ -253,10 +253,10 @@ angular.module('jogo').controller('CadHistoriaEditor',
     };
 
 
-  });
+  }]);
 
 
-angular.module('jogo').controller('ModalInstanceCtrl', function($scope, $modalInstance, elemento) {
+angular.module('jogo').controller('ModalInstanceCtrl',['$scope', '$modalInstance', 'elemento', function($scope, $modalInstance, elemento) {
 
   $scope.principal = elemento;
 
@@ -268,4 +268,4 @@ angular.module('jogo').controller('ModalInstanceCtrl', function($scope, $modalIn
   $scope.cancel = function() {
     $modalInstance.dismiss('cancel');
   };
-});
+}]);
