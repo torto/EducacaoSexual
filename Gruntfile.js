@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       dist: {
-        files: ['**/*'],
+        files: ['public/**/*'],
         options: {
           livereload: true,
         }

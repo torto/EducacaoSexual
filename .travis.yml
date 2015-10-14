@@ -14,6 +14,12 @@ before_script:
 - grunt minifica
 script:
 - karma start config/karma.config.js --single-run --browsers PhantomJS
+before_deploy:
+- git config --global user.email 'travis@travis-ci.com'
+- git config --global user.name 'Travis CI'
+- git checkout $TRAVIS_BRANCH
+- git add --all
+- git commit -am "Travis commit"
 deploy:
   provider: openshift
   user: tortoyoyo@hotmail.com
