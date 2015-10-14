@@ -10,7 +10,7 @@
 
 module.exports = {
   env: 'production',
-  db: process.env.OPENSHIFT_MONGODB_DB_URL + 'educao',
+  db: process.env.OPENSHIFT_MONGODB_DB_URL + 'educacao',
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
   port: process.env.OPENSHIFT_NODEJS_PORT ||  process.env.OPENSHIFT_INTERNAL_PORT || 8080,
