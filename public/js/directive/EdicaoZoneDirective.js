@@ -8,8 +8,6 @@ angular.module('jogo').directive('edicao', function() {
         DIREITA = 39,
         DELETE = 46;
 
-
-
       $(elem).on('keydown', '.resize', function(event) {
         var elemento = $(this);
         var posicao = elemento.data('posicao');

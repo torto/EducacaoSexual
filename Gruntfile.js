@@ -24,14 +24,14 @@ module.exports = function(grunt) {
       }
     },
     usemin: {
-      html: 'dist/app/views/**/*.ejs'
+      html: 'app/views/**/*.ejs'
     },
     useminPrepare: {
       options: {
-        root: 'dist/public',
-        dest: 'dist/public'
+        root: 'public',
+        dest: 'public'
       },
-      html: 'dist/app/views/**/*.ejs'
+      html: 'app/views/**/*.ejs'
     }
   });
   // require('load-grunt-tasks')(grunt);
