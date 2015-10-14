@@ -32,7 +32,12 @@ module.exports = function(grunt) {
         dest: 'public'
       },
       html: 'app/views/**/*.ejs'
-    }
+    },
+    uglify: {
+            options: {
+                mangle: false
+            }
+        }
   });
   // require('load-grunt-tasks')(grunt);
 
@@ -40,7 +45,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['dist', 'minifica']);
   grunt.registerTask('dist', ['clean', 'copy']);
-  grunt.registerTask('minifica', ['useminPrepare', 'concat', 'ngAnnotate',
+  grunt.registerTask('minifica', ['useminPrepare', 'concat',
     'uglify', 'cssmin', 'usemin'
   ]);
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -50,6 +55,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-ng-annotate');
 
 };
