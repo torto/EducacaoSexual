@@ -1,4 +1,4 @@
-angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).config(function($routeProvider, $httpProvider) {
+angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).config(function($routeProvider, $httpProvider, $locationProvider) {
 
 	$httpProvider.interceptors.push('meuInterceptor');
 
@@ -16,8 +16,38 @@ angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).c
     templateUrl: 'partials/login/index.html'
   });
 
+	$routeProvider.when('/edicaoUsuario/:tela', {
+		templateUrl: 'partials/cadastro/usuario/usuario-index.html',
+		controller: 'CadUsuarioController'
+	});
+	$routeProvider.when('/edicaoUsuario/', {
+		templateUrl: 'partials/cadastro/usuario/usuario-index.html',
+		controller: 'CadUsuarioController'
+	});
+
   $routeProvider.otherwise({
     redirectTo: '/'
   });
+	// $locationProvider.html5Mode(true);
 
-});
+}).factory('authHttpResponseInterceptor',['$q','$location',function($q,$location){
+    return {
+        response: function(response){
+            if (response.status === 401) {
+                console.log("Response 401");
+            }
+            return response || $q.when(response);
+        },
+        responseError: function(rejection) {
+            if (rejection.status === 401) {
+                console.log("Response Error 401",rejection);
+                $location.path('/#/auth');
+            }
+            return $q.reject(rejection);
+        }
+    };
+}])
+.config(['$httpProvider',function($httpProvider) {
+    //Http Intercpetor to check auth failures for xhr requests
+    $httpProvider.interceptors.push('authHttpResponseInterceptor');
+}]);

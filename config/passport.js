@@ -17,9 +17,10 @@ module.exports = function() {
     Usuario.findOrCreate({
         "login": profile.username
       }, {
-        "nome": profile.username
+        "nome": profile.displayName,
+        "email": profile.emails[0].value
       },
-      function(erro, usuario) {
+      function(erro, usuario, criou) {
         if (erro) {
           console.log(erro);
           return done(erro);

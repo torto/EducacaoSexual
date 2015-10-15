@@ -13,6 +13,21 @@ module.exports = function() {
       type: String,
       required: true,
     },
+    pass: {
+      type: String,
+      default: ''
+    },
+    email: {
+      type: String,
+      default: '',
+      index: {
+        unique: true
+      }
+    },
+    tipoUsuario: {
+      type: String,
+      default: ''
+    },
     inclusao: {
       type: Date,
       default: Date.now

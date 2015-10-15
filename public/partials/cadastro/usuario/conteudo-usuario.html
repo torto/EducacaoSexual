@@ -1,0 +1,60 @@
+<div class="row titulo">
+  <div class="col-md-12">
+    <h1>Edição de Usuário</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center box-border-bottom">
+  <h4> Para continuar a utilizar o aplicativo, termine seu cadastro.</h4>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 10px !important;">
+  <div class="col-md-5 col-md-offset-1 box-border-left">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <div class="input-group">
+          <span class="input-group-addon">@</span>
+          <input class="form-control" ng-model="user.email" type="text">
+        </div>
+        <!-- <input class="form-control" id="exampleInputEmail1" placeholder="Email" type="email"> -->
+      </div>
+  </div>
+
+  <div class="col-md-5 col-md-offset-1 box-border-left">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Tipo de Usuário</label>
+    </div>
+    <div class="radio">
+    <label>
+      <input type="radio" name="radioProfissao" value="aluno"  ng-model="user.tipoUsuario">
+      Aluno
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="radioProfissao" value="professor" ng-model="user.tipoUsuario">
+      Professor
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="radioProfissao" value="psicologo" ng-model="user.tipoUsuario">
+      Psicólogo
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="radioProfissao" value="conselho" ng-model="user.tipoUsuario">
+      Conselho Tutelar
+    </label>
+  </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 10px !important;">
+  <div class="col-md-6 col-md-offset-3 box-border-top">
+    <button type="button" style="margin-top:5px;" ng-click="updateUsuario()" class="btn btn-default center-block">Salvar</button>
+  </div>
+</div>
