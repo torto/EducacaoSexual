@@ -11,6 +11,15 @@ angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).c
     templateUrl: 'partials/cadastro/historia/editor.html',
     controller: 'CadHistoriaEditor'
   });
+	$routeProvider.when('/cadastro/editor/:id', {
+    templateUrl: 'partials/cadastro/historia/editor.html',
+    controller: 'CadHistoriaEditor'
+  });
+
+	$routeProvider.when('/cadastro/editor/:id', {
+    templateUrl: 'partials/cadastro/historia/editor.html',
+    controller: 'CadQuadroEditor'
+  });
 
   $routeProvider.when('/auth', {
     templateUrl: 'partials/login/index.html'
@@ -23,6 +32,11 @@ angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).c
 	$routeProvider.when('/edicaoUsuario/', {
 		templateUrl: 'partials/cadastro/usuario/usuario-index.html',
 		controller: 'CadUsuarioController'
+	});
+
+	$routeProvider.when('/meusQuadrinhos/', {
+		templateUrl: 'partials/cadastro/historia/lista/lista-historia-index.html',
+		controller: 'MeusQuadrinhosController'
 	});
 
   $routeProvider.otherwise({

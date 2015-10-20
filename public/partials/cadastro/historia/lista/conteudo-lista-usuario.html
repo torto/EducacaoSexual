@@ -1,0 +1,38 @@
+<div class="row titulo">
+  <div class="col-md-12">
+    <h1>
+      <span class="glyphicon glyphicon-list" style="font-size: 30px;"></span>
+      Meus Quadrinhos</h1>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-md-4 " ng-repeat="elemento in list">
+    <div class="blog blog-info">
+      <div class="blog-header">
+        <h5 class="blog-title">
+          <a href="#/cadastro/editor/{{elemento._id}}">{{elemento.nomeQuadrinho}}</a>
+        </h5>
+      </div>
+      <div class="blog-body">
+        <a href="#/cadastro/editor/{{elemento._id}}">
+          <img class="img-responsive img-thumbnail" src="{{elemento.quadros[0].imgThumb}}">
+        </a>
+
+        <div aria-label="botoes" class="btn-group btn-group-justified" role="group">
+          <div class="btn-group" role="group">
+            <a class="btn btn-default" href="#/cadastro/editor/{{elemento._id}}" ><span class="glyphicon glyphicon-edit"></span> Editar</a>
+          </div>
+          <div class="btn-group" role="group">
+            <a class="btn btn-default" href="/final?id={{elemento._id}}"><span class="glyphicon glyphicon-book"></span> Visualizar</a>
+          </div>
+          <div class="btn-group" role="group">
+            <button class="btn btn-default excluir-historia" data-id="{{elemento._id}}" type="button"><span class="glyphicon glyphicon-remove"></span> Excluir</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

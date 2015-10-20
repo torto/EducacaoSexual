@@ -11,11 +11,12 @@
 	<!-- build:css css/index.min.css -->
 	<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="vendor/sweetalert/dist/sweetalert.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/editor.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/libs/jquery.horizontal.scroll.css">
 	<!-- endbuild -->
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<title>Jogo Educação Sexual</title>
 
 	<body>
@@ -37,7 +38,10 @@
 		<script type="text/javascript" src="vendor/angular-animate/angular-animate.min.js"></script>
 
 		<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="vendor/sweetalert/dist/sweetalert.min.js"></script>
 		<script type="text/javascript" src="js/libs/jquery.horizontal.scroll.js"></script>
+		<script type="text/javascript" src="js/libs/html2canvas.js"></script>
+		<script type="text/javascript" src="js/libs/canvas2image.js"></script>
 		<script type="text/javascript" src="vendor/interact/interact.min.js"></script>
 		<script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -52,6 +56,8 @@
 		<script type="text/javascript" src="js/directive/AdicionarImagemPrincipalDirective.js"></script>
 		<script type="text/javascript" src="js/directive/ResizeDirective.js"></script>
 		<script type="text/javascript" src="js/directive/ResizeDivPrincipalDirective.js"></script>
+		<script type="text/javascript" src="js/directive/BotaoSalvarDirective.js"></script>
+		<script type="text/javascript" src="js/directive/ExcluirHistoriaDirective.js"></script>
 
 		<script type="text/javascript" src="js/services/InterceptadorService.js"></script>
 		<script type="text/javascript" src="js/services/MenuService.js"></script>
@@ -63,12 +69,15 @@
 		<script type="text/javascript" src="js/services/quadrinho/ControleQuadrinhoService.js"></script>
 		<script type="text/javascript" src="js/services/banco/usuario.js"></script>
 
+		<script type="text/javascript" src="js/services/banco/resource/ResorceHistoria.js"></script>
+
 		<script type="text/javascript" src="js/controllers/PrincipalController.js"></script>
 		<script type="text/javascript" src="js/controllers/CadFundoController.js"></script>
 		<script type="text/javascript" src="js/controllers/NovoQuadrinhoController.js"></script>
 		<script type="text/javascript" src="js/controllers/CadCenaController.js"></script>
 		<script type="text/javascript" src="js/controllers/cadastro/historia/historiaEditorController.js"></script>
 		<script type="text/javascript" src="js/controllers/cadastro/usuario/UsuarioController.js"></script>
+		<script type="text/javascript" src="js/controllers/cadastro/historia/lista/listaHistoriaController.js"></script>
 		<!-- endbuild -->
 
 	</body>

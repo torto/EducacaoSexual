@@ -39,9 +39,10 @@ module.exports = function() {
   app.set('views', './app/views');
 
   app.use(bodyParser.urlencoded({
+    limit: '50mb',
     extended: true
   }));
-  app.use(bodyParser.json());
+  app.use(bodyParser.json({limit: '50mb'}));
   app.use(require('method-override')());
 
   load('models', {

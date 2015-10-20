@@ -1,37 +1,5 @@
-angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$routeParams', '$location', '$modal', '$rootScope', 'initPage', 'PaginacaoService', 'Inserts', 'MenuArrayService', 'ControleQuadrinho',
-  function($scope, $resource, $routeParams, $location, $modal, $rootScope, initPage, PaginacaoService, Inserts, MenuArrayService, ControleQuadrinho) {
-    $rootScope.clone = function clone(obj) {
-      var copy;
-
-      // Handle the 3 simple types, and null or undefined
-      if (null === obj || "object" != typeof obj) return obj;
-      // Handle Date
-      if (obj instanceof Date) {
-        copy = new Date();
-        copy.setTime(obj.getTime());
-        return copy;
-      }
-
-      // Handle Array
-      if (obj instanceof Array) {
-        copy = [];
-        for (var i = 0, len = obj.length; i < len; i++) {
-          copy[i] = clone(obj[i]);
-        }
-        return copy;
-      }
-
-      // Handle Object
-      if (obj instanceof Object) {
-        copy = {};
-        for (var attr in obj) {
-          if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
-        }
-        return copy;
-      }
-
-      throw new Error("Unable to copy obj! Its type isn't supported.");
-    };
+angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$routeParams', '$location', '$modal', 'initPage', 'PaginacaoService', 'Inserts', 'MenuArrayService', 'ControleQuadrinho', '$route',
+  function($scope, $resource, $routeParams, $location, $modal, initPage, PaginacaoService, Inserts, MenuArrayService, ControleQuadrinho, $route) {
 
     $scope.listaJaCriados = ControleQuadrinho.getListQuadros();
 
@@ -49,7 +17,7 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
       elementos: []
     };
 
-    $scope.historia = $rootScope.clone(historiaLimpa);
+    $scope.historia = ControleQuadrinho.clone(historiaLimpa);
 
     $scope.trocarNomeQuadrinho = function(valor) {
       $scope.tituloPaginaTopo = valor;
@@ -72,6 +40,12 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
     $scope.listathumb = MenuArrayService.listaFundos();
 
     $scope.menusOpcaoPersonagens = [];
+
+    if($routeParams.id){
+      buscarHistoriaById($routeParams.id);
+    } else {
+      $scope.listaJaCriados = [];
+    }
 
     $scope.selecionarSubMenu = function(valor) {
       var novoThumb = [];
@@ -217,15 +191,36 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
 
 
     //METODOS DE EXECUCAO -------------------------
+    $scope.salvarHistoriaInteira = function(){
+      ControleQuadrinho.salvarQuadrinho(function(resp){
+        console.log(resp);
+        $location.path('/meusQuadrinhos');
+      });
+    };
 
+    function buscarHistoriaById(id){
+      ControleQuadrinho.buscarHistoriaById(id, function(res){
+        // $scope.updateExistente(0);
+        carregarListaCriados();
+        console.log(res);
+      });
+    }
+
+    $scope.buscarHistoriaById = function(id){
+      buscarHistoriaById(id);
+    };
 
     $scope.adicionarQuadroAHistoria = function() {
       ControleQuadrinho.addQuadroHistoria($scope.historia);
-      $scope.historia = $rootScope.clone(historiaLimpa);
+    };
+
+    $scope.mudarTelaDepoisQuadrinhoCarregado = function(){
+      $scope.historia = ControleQuadrinho.clone(historiaLimpa);
       carregarListaCriados();
       // $scope.trocarNomeQuadrinho($scope.historia.nomeQuadrinho);
       atulizarTrocaDeQuadrinho();
       $scope.atualHistoria = null;
+      // $route.reload();
     };
 
     $scope.updateExistente = function(id) {
@@ -242,14 +237,13 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
       if (valor) {
         $scope.historia = valor;
       } else {
-        $scope.historia = $rootScope.clone(historiaLimpa);
+        $scope.historia = ControleQuadrinho.clone(historiaLimpa);
       }
       atulizarTrocaDeQuadrinho();
     };
 
     var atulizarTrocaDeQuadrinho = function(){
       $scope.trocarNomeQuadrinho($scope.historia.nomeQuadrinho);
-
     };
 
 

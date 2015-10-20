@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "watch": "sh scripts/server.sh & grunt dev "
+    "watch": "sh scripts/server.sh & grunt dev",
+    "live": "sh scripts/server-w.sh & grunt dev"
   },
   "author": "Guilherme Costa Berghauser",
   "license": "ISC",
