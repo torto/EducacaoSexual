@@ -1,5 +1,5 @@
-angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$routeParams', '$location', '$modal', 'initPage', 'PaginacaoService', 'Inserts', 'MenuArrayService', 'ControleQuadrinho', '$route',
-  function($scope, $resource, $routeParams, $location, $modal, initPage, PaginacaoService, Inserts, MenuArrayService, ControleQuadrinho, $route) {
+angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$routeParams', '$location', '$modal', 'initPage', 'MenuArrayService', 'ControleQuadrinho',
+  function($scope, $resource, $routeParams, $location, $modal, initPage, MenuArrayService, ControleQuadrinho) {
 
     $scope.listaJaCriados = ControleQuadrinho.getListQuadros();
 
@@ -191,8 +191,14 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
 
 
     //METODOS DE EXECUCAO -------------------------
+    $scope.removerQuadro = function(id){
+        ControleQuadrinho.removerQuadro(id, function(resp){
+          console.log('removido');
+        });
+    };
+
     $scope.salvarHistoriaInteira = function(){
-      ControleQuadrinho.salvarQuadrinho(function(resp){
+      ControleQuadrinho.salvarQuadrinho(null, function(resp){
         console.log(resp);
         $location.path('/meusQuadrinhos');
       });

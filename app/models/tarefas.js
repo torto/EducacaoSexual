@@ -6,14 +6,16 @@ module.exports = function() {
       type: mongoose.Schema.Types.ObjectId,
       required: true
     },
-    nomeQuadrinho: {
+    hashTarefa:{
+      type: Number,
+      unique: true,
+      required: true
+    },
+    nomeTarefa: {
       type: String,
       required: true
     },
-    hashTarefa: {
-      type: String
-    },
-    quadros: {
+    historias: {
       type: Array,
       "default": []
     },
@@ -23,5 +25,5 @@ module.exports = function() {
     }
   });
 
-  return mongoose.model('Historia', schema);
+  return mongoose.model('Tarefas', schema);
 };

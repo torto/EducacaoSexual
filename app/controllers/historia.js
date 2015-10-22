@@ -14,7 +14,8 @@ module.exports = function(app) {
     var _id = req.body._id;
     if (_id) {
       Historia.findByIdAndUpdate(_id, historia, {
-          new: true
+          new: true,
+          upsert: true
         }).exec()
         .then(
           function(historia) {
@@ -62,8 +63,8 @@ module.exports = function(app) {
 
   controller.excluirHistoria = function(req, res) {
     Historia.find().where("idUser").equals(req.user._id)
-    .where("_id").equals(req.query.id)
-    .remove().exec()
+      .where("_id").equals(req.query.id)
+      .remove().exec()
       .then(
         function() {
           res.status(204).end();
@@ -71,31 +72,6 @@ module.exports = function(app) {
         function(erro) {
           return console.error(erro);
         });
-
-  };
-
-  controller.getUsuario = function(req, res) {
-    res.json(req.user);
-  };
-  controller.setUsuario = function(req, res) {
-    var novo = sanitize(req.body);
-    var id = novo._id;
-    // console.log(req.body);
-    delete novo._id;
-    Usuario.findByIdAndUpdate(id, novo, {
-        new: true,
-        upsert: true
-      },
-      function(erro, usuario) {
-        if (!erro) {
-          // console.log(usuario);
-          res.json(usuario);
-        } else {
-          console.error(erro);
-          res.status(500).json(erro);
-        }
-      }
-    );
 
   };
 

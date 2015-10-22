@@ -1,4 +1,4 @@
-angular.module('jogo').factory('ControleQuadrinho', function(ResourceHistoria) {
+angular.module('jogo').factory('ControleQuadrinho', function(ResourceBanco) {
   var historiaAtual = {};
   historiaAtual.nomeQuadrinho = '';
   historiaAtual.quadros = [];
@@ -63,16 +63,21 @@ angular.module('jogo').factory('ControleQuadrinho', function(ResourceHistoria) {
     getListQuadros: function() {
       return historiaAtual.quadros;
     },
-    salvarQuadrinho: function(callback) {
+    salvarQuadrinho: function(historia, callback) {
+      var historiaEnvio = historiaAtual;
+      if(historia){
+        historiaEnvio = historia;
+      }
+
       historiaAtual.nomeQuadrinho = 'Teste Cliente';
-      ResourceHistoria.historia.save({},historiaAtual, function(resp){
+      ResourceBanco.historia.save({},historiaEnvio, function(resp){
         // console.log(resp);
         historiaAtual = resp;
         callback(resp);
       });
     },
     buscarHistoriaById: function(id, callback) {
-      ResourceHistoria.historia.get({"_id": id},function(resp){
+      ResourceBanco.historia.get({"_id": id},function(resp){
         // console.log(resp);
         historiaAtual = resp;
         callback(resp);
@@ -83,12 +88,12 @@ angular.module('jogo').factory('ControleQuadrinho', function(ResourceHistoria) {
       inserirCanvas(canvas, posicaoUltimo);
     },
   getHistoriasByUser: function(callback){
-    ResourceHistoria.historia.query(function(resp){
+    ResourceBanco.historia.query(function(resp){
       listHistorias = resp;
       callback(resp);
     });
   }, excluirHistoria : function(id, callback){
-    ResourceHistoria.historia.delete({"id": id}, function(resp){
+    ResourceBanco.historia.delete({"id": id}, function(resp){
       listHistorias = listHistorias.filter(function(obj){
         if(obj._id == id){
           return false;
@@ -100,6 +105,10 @@ angular.module('jogo').factory('ControleQuadrinho', function(ResourceHistoria) {
     });
   }, getListaHistorias : function(callback){
     callback(listHistorias);
+  },
+  removerQuadro: function(id, callback){
+    historiaAtual.quadros.splice(id, 1);
+    callback();
   }
 };
 

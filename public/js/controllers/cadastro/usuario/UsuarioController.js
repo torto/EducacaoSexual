@@ -4,7 +4,6 @@ angular.module('jogo').controller('CadUsuarioController',
     $scope.init = function() {
 
       var init = {
-        titulo: 'Usuário',
         menu: 'configuracao'
       };
 

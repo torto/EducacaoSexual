@@ -1,0 +1,84 @@
+<div class="row titulo">
+  <div class="col-md-12">
+    <h1>
+      <span class="glyphicon glyphicon-education" style="font-size: 30px;"></span>
+      Minhas Tarefas</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center box-border-bottom">
+  <h4> Lista com suas tarefas criadas.</h4>
+  </div>
+</div>
+<div class="row" ng-repeat="elemento in tarefas">
+  <div class="col-md-10 col-md-offset-1">
+
+    <div class="blog blog-info">
+      <div class="blog-header">
+        <h5 class="blog-title">
+          <a href="#/cadastro/editor/{{elemento._id}}" style="color: white;">{{elemento.nomeTarefa}}</a>
+        </h5>
+      </div>
+      <div class="blog-body">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-3">
+            <div class="box-azul-claro text-center">
+              <div class="spacer-xs">
+                <i class="glyphicon glyphicon-cloud"></i>
+                <small class="text-center">Data Início</small>
+                <h3 class="no-margin no-padding text-center">{{elemento.criado}}</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="box-verde text-center">
+              <div class="spacer-xs">
+                <i class="glyphicon glyphicon-tag" style="font-size:10px"></i>
+                <small class="text-center">Hash</small>
+                <h3 class="no-margin no-padding text-center">{{elemento.hashTarefa}}</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="box-azul-escuro text-center">
+              <div class="spacer-xs">
+                <i class="glyphicon glyphicon-book" style="font-size:10px;"></i>
+                <small class="text-center">Histórias <br />Adicionadas</small>
+                <h3 class="no-margin no-padding text-center" style="margin: 9px;">{{elemento.historias.length}}</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="box-vermelho text-center">
+              <div class="spacer-xs">
+                <i class="glyphicon glyphicon-king" style="font-size: 10px"></i>
+                <small class="text-center">Data Final</small>
+                <h3 class="no-margin no-padding text-center">00/00/0000</h3>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="row" style="margin-top: 10px !important">
+          <div class="col-md-4">
+            <button class="btn btn-default excluir-tarefa" name="button" data-id="{{elemento._id}}" type="button">
+              <span class="glyphicon glyphicon-remove"></span>
+              Excluir</button>
+          </div>
+
+          <div class="col-md-offset-4 col-md-4">
+            <button class="btn btn-default" ng-click="openLista($index)" name="button" style="float: right;" type="button">
+              <span class="glyphicon glyphicon-book"></span>
+              Ver Tarefas</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

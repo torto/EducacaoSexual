@@ -17,11 +17,14 @@
               </h5>
             </div>
 
-            <div class="col-md-10">
+            <div class="col-md-8" style="padding-right: 0px !important;">
               <select class="form-control" ng-change="mudarQuadrinhoCriado(atualHistoria)" ng-model="atualHistoria" ng-options="lista as lista.nomeQuadrinho for lista in listaJaCriados track by lista.posicao">
                 <option value="">+ Nova Tela</option>
               </select>
             </div>
+            <div class="col-md-2" style="padding-left: 10px;margin-top: 1px;">
+            <button class="btn btn-default excluir-quadro" type="button"><span class="glyphicon glyphicon-remove" style="color:red"></span></button>
+          </div>
           </div>
         </div>
       </div>

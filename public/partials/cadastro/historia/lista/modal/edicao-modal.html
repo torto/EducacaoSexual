@@ -1,0 +1,35 @@
+<form name="hash_form" ng-submit="ok()">
+<div class="modal-header">
+  <h3 class="modal-title">Edição Info História</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-5">
+      <img class="img-responsive img-thumbnail" src="{{elementoAtual.quadros[0].imgThumb}}" alt="" />
+    </div>
+    <div class="col-md-7">
+      <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nome da História</label>
+    <input type="text" class="form-control"  placeholder="Nome da História" ng-model="elementoAtual.nomeQuadrinho">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Hash da Tarefa</label>
+    <input type="text" class="form-control" name="input_hash" ng-maxlength="4" placeholder="Hash da Tarefa. Ex: 4367" ng-model="elementoAtual.hashTarefa">
+    <div class="error"
+        ng-show="hash_form.input_hash.$dirty && hash_form.input_hash.$invalid">
+    <small class="error"
+        ng-show="hash_form.input_hash.$error.maxlength" style="color: red; font-size: 13px;">
+        Hash deve possuir até no máx. 4 posições.
+    </small>
+  </div>
+</form>
+    </div>
+
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="submit" ng-disabled="hash_form.$invalid">OK</button>
+  <button class="btn btn-warning" ng-click="cancel()" type="button">Cancel</button>
+</div>
+</form>

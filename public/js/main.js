@@ -1,4 +1,4 @@
-angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).config(function($routeProvider, $httpProvider, $locationProvider) {
+angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap','ui.grid', 'ui.grid.edit']).config(function($routeProvider, $httpProvider, $locationProvider) {
 
 	$httpProvider.interceptors.push('meuInterceptor');
 
@@ -16,10 +16,19 @@ angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).c
     controller: 'CadHistoriaEditor'
   });
 
-	$routeProvider.when('/cadastro/editor/:id', {
-    templateUrl: 'partials/cadastro/historia/editor.html',
-    controller: 'CadQuadroEditor'
+	$routeProvider.when('/cadastro/tarefa/', {
+    templateUrl: 'partials/cadastro/tarefa/cad-tarefa-index.html',
+    controller: 'CadTarefaController'
   });
+
+	$routeProvider.when('/cadastro/tarefa/:id', {
+		templateUrl: 'partials/cadastro/tarefa/cad-tarefa-index.html',
+		controller: 'CadTarefaController'
+	});
+	$routeProvider.when('/minhasTarefas', {
+		templateUrl: 'partials/cadastro/tarefa/lista/lista-tarefa-index.html',
+		controller: 'ListaTarefaController'
+	});
 
   $routeProvider.when('/auth', {
     templateUrl: 'partials/login/index.html'

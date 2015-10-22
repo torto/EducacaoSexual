@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h3 class="modal-title">Histórias Adicionadas</h3>
+</div>
+<div class="modal-body">
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Lista de tarefas</div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            Nome Aluno
+          </th>
+
+          <th>
+            Link
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="elemento in historiaSelecionada.historias">
+          <td>
+            {{elemento.nomeUser}}
+          </td>
+
+          <th>
+            <a href="{{url}}{{elemento.idHistoria}}" target="_blank">{{$index+1}}
+              -
+              {{elemento.nomeUser}}</a>
+          </th>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()" type="button">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()" type="button">Cancel</button>
+  </div>
