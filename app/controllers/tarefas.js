@@ -39,7 +39,7 @@ module.exports = function(app) {
 
   controller.getTarefaByUser = function(req, res) {
     var query = Tarefa.find()
-      .where("idUser").equals(req.user._id);
+      .where("idUser").equals(req.user._id).populate('historias.idUser');
     if (req.query._id) {
       query.where("_id").equals(req.query._id);
     }
@@ -108,7 +108,6 @@ module.exports = function(app) {
 
   controller.salvarHistoriaNaTarefa = function(req, res) {
     req.body.idUser = req.user._id;
-    req.body.nomeUser = req.user.nome;
     var query = Tarefa.find()
       .where("hashTarefa").equals(sanitize(req.body.hashTarefa))
       .ne("historias.idHistoria", req.body.idHistoria)

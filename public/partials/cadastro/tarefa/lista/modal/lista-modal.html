@@ -23,13 +23,13 @@
       <tbody>
         <tr ng-repeat="elemento in historiaSelecionada.historias">
           <td>
-            {{elemento.nomeUser}}
+            {{elemento.idUser.nome}}
           </td>
 
           <th>
             <a href="{{url}}{{elemento.idHistoria}}" target="_blank">{{$index+1}}
               -
-              {{elemento.nomeUser}}</a>
+              {{elemento.idUser.nome}}</a>
           </th>
         </tr>
       </tbody>

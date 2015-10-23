@@ -1,4 +1,4 @@
-angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap','ui.grid', 'ui.grid.edit']).config(function($routeProvider, $httpProvider, $locationProvider) {
+angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).config(function($routeProvider, $httpProvider, $locationProvider) {
 
 	$httpProvider.interceptors.push('meuInterceptor');
 

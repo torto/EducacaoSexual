@@ -44,7 +44,7 @@
             <div class="col-md-12 menu">
               <scroll-horizontal valor="'horiz'">
               <li data-ng-repeat="menu in menus">
-                <a ng-click="alterarSubMenu(menu.label)">
+                <a ng-click="alterarMenu(menu.label)">
                   {{ menu.label }}
                 </a>
               </li>
@@ -101,7 +101,9 @@
               </div>
 
               <img alt="" class="img-responsive resize-image" ng-src="{{valor.image.image['300'].href}}" style="position: absolute;top:0; left:0; overflow: auto;display: block; max-width:100%;max-height: 100%;"/>
-              <img alt="" class="img-responsive" ng-repeat="complementos in valor.complementos" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0; overflow: auto;display: block;max-width:100%;max-height: 100%;"/>
+              <img alt="" class="img-responsive" ng-repeat="complementos in valor.complementos" ng-if="valor.complementos.length > 0 && complementos.label!='balao'" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0; overflow: auto;display: block;max-width:100%;max-height: 100%;"/>
+              <p alt="" class="img-responsive" ng-repeat="complementos in valor.complementos" ng-if="valor.complementos.length > 0 && complementos.label=='balao'" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0; overflow: auto;display: block;max-width:100%;max-height: 100%;">{{complementos.texto}}<p>
+
             </div>
           </div>
           <div class="clearfix" style="margin-bottom: 20px;"></div>

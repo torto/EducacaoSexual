@@ -37,7 +37,9 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
 
     $scope.subMenus = [];
 
-    $scope.listathumb = MenuArrayService.listaFundos();
+     MenuArrayService.listaFundos(function(res){
+      $scope.listathumb = res;
+    });
 
     $scope.menusOpcaoPersonagens = [];
 
@@ -50,32 +52,58 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
     $scope.selecionarSubMenu = function(valor) {
       var novoThumb = [];
       if (valorMenuPrincipal.toLowerCase() == 'personagens') {
-        novoThumb = MenuArrayService.listaPersonagens().filter(function(obj) {
-          var retorno = false;
-          if (obj.subcategoria) {
-            if (obj.subcategoria.toLowerCase() === valor.label.toLowerCase()) {
-              retorno = true;
+         MenuArrayService.listaPersonagens(function(res){
+          novoThumb = res.filter(function(obj) {
+            var retorno = false;
+            if (obj.subcategoria) {
+              if (obj.subcategoria.toLowerCase() === valor.label.toLowerCase()) {
+                retorno = true;
+              }
             }
-          }
 
-          return retorno;
+            return retorno;
+          });
+          $scope.listathumb = novoThumb;
         });
       }
-
-
-      $scope.listathumb = novoThumb;
     };
 
-    $scope.alterarSubMenu = function(valor) {
+    $scope.alterarMenu = function(valor) {
+    //   if (valor === 'Personagens') {
+    //    $scope.listathumb = MenuArrayService.listaPersonagens();
+    //    subMenus = MenuArrayService.personagemSubMenu();
+    //  } else if (valor === 'Fundos') {
+    //    $scope.listathumb = MenuArrayService.listaFundos();
+    //  }
+
       var subMenus = [];
       valorMenuPrincipal = valor;
       if (valor === 'Personagens') {
-        $scope.listathumb = MenuArrayService.listaPersonagens();
+        MenuArrayService.listaPersonagens(function(res){
+        $scope.listathumb = res;
         subMenus = MenuArrayService.personagemSubMenu();
-      } else if (valor === 'Fundos') {
-        $scope.listathumb = MenuArrayService.listaFundos();
-      }
+        mudarSubMenu(subMenus, valor);
+      });
+    } else if(valor === 'Fundos'){
+       MenuArrayService.listaFundos(function(res){
+         $scope.listathumb = res;
 
+         mudarSubMenu(subMenus, valor);
+       });
+
+    } else if(valor === 'Objetos'){
+      MenuArrayService.listaObjetos(function(res){
+        $scope.listathumb = res;
+
+        mudarSubMenu(subMenus, valor);
+      });
+    }
+
+
+
+    };
+
+    function mudarSubMenu(subMenus, valor){
       var novoMenu = subMenus.filter(function(obj) {
         if (obj.label === valor) {
           return true;
@@ -84,8 +112,7 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
         }
       });
       $scope.subMenus = novoMenu;
-    };
-
+    }
 
     $scope.elemento = null;
 
@@ -111,9 +138,21 @@ angular.module('jogo').controller('CadHistoriaEditor',['$scope', '$resource', '$
           complementos: []
         };
 
-        $scope.menusOpcaoPersonagens = MenuArrayService.personagemEdicaoMenu(elemento.tipo);
+       MenuArrayService.personagemEdicaoMenu(elemento.tipo, function(res){
+            $scope.menusOpcaoPersonagens = res;
+            $scope.openModalPersonagem('lg');
+        });
 
-        $scope.openModalPersonagem('lg');
+      } else if (elemento.categoria === 'objeto'){
+        $scope.elementoSelecionado = {
+          nomeElemento: '',
+          transform: 'translate(0px,0px)',
+          height: 100,
+          image: elemento,
+          complementos: [{texto:'teste', label: 'balao'}]
+        };
+
+        $scope.adicionarElementoSelecionadoQuadro();
       }
     };
 

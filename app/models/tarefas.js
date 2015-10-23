@@ -15,10 +15,11 @@ module.exports = function() {
       type: String,
       required: true
     },
-    historias: {
-      type: Array,
-      "default": []
-    },
+    historias: [{
+      idUser: {type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'},
+      hashTarefa: String,
+      idHistoria: mongoose.Schema.Types.ObjectId
+    }],
     criado: {
       type: Date,
       default: Date.now

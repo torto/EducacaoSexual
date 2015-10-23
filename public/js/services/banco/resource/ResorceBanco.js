@@ -38,8 +38,6 @@ angular.module('jogo').factory('ResourceBanco', function($resource) {
       'save': {
         method: 'POST'
       }
-    }),
-
-
+    })
   };
 });
