@@ -3,6 +3,9 @@ angular.module('jogo').directive('resize', function() {
     restrict: 'C',
     scope: false,
     link: function(scope, elem, attrs) {
+      $(elem).on('resize',function(){
+        console.log('resized');
+      });
 
       interact('.resize')
         .draggable({

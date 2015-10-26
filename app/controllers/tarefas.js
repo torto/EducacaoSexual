@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var sanitize = require('mongo-sanitize'); // EVITAR SQL INJECT
 
 module.exports = function(app) {
@@ -86,6 +87,19 @@ module.exports = function(app) {
           } else {
             res.json(elementos);
           }
+        },
+        function(erro) {
+          console.log(erro);
+          res.status(500).json(erro);
+        });
+  };
+
+  controller.getOneTarefaByHash = function(req, res) {
+    var query = Tarefa.find().populate('idUser', 'nome').select('nomeTarefa hashTarefa idUser')
+      .where("hashTarefa").equals(req.query.hashTarefa).exec()
+      .then(
+        function(elementos) {
+            res.json(elementos[0]);
         },
         function(erro) {
           console.log(erro);

@@ -38,6 +38,12 @@ angular.module('jogo').factory('ResourceBanco', function($resource) {
       'save': {
         method: 'POST'
       }
+    }),
+    tarefaHashOne: $resource('/tarefaHashOne', {}, {
+      'get': {
+        method: 'GET',
+        isArray: false
+      }
     })
   };
 });

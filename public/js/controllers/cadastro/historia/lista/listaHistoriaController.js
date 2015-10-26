@@ -50,7 +50,7 @@ angular.module('jogo').controller('ModalListaEdicaoHistoriaCtrl', ['$scope', '$m
 
   $scope.ok = function() {
     var hashElemento = {};
-    $scope.salvarEdicaoHistoria($scope.elementoAtual, function(res){
+    $scope.salvarEdicaoHistoria($scope.elementoAtual, function(res) {
       if ($scope.elementoAtual.hashTarefa) {
         $scope.salvarHistoriaAHash($scope.elementoAtual, function(res) {
           $modalInstance.dismiss('cancel');
@@ -60,6 +60,31 @@ angular.module('jogo').controller('ModalListaEdicaoHistoriaCtrl', ['$scope', '$m
       }
     });
 
+  };
+
+  $scope.keyHashEvento = function() {
+    if ($scope.elementoAtual.hashTarefa.length == 4) {
+      ControleTarefa.getOneTarefa($scope.elementoAtual.hashTarefa, function(res){
+        if(res.hashTarefa){
+        swal({
+          title: "Tarefa "+res.hashTarefa+" Encontrada!",
+          text: '<div class="row"><div class="row"><div class="col-md-12"><p>Autor/a da Tarefa: '+res.idUser.nome+'</p></div></div>    <div class="row"><div class="col-md-12">     <p>Nome da Tarefa: '+res.nomeTarefa+'</p>    </div></div>       <div class="row"><div class="col-md-12">     <p><b>Deseja adicionar essa historia a essa tarefa?<b></p>              </div>            </div>',
+          type: "success",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Adicionar",
+          cancelButtonText:'Não',
+          closeOnConfirm: true,
+          html: true
+        }, function(){
+        }, function(){
+          $scope.elementoAtual.hashTarefa = "";
+        });
+      } else {
+        sweetAlert("Oops...", "Tarefa não encontrada!", "error");
+      }
+      });
+    }
   };
 
   $scope.cancel = function() {

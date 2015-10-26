@@ -23,7 +23,7 @@ angular.module('jogo').factory('ControleTarefa', function(ResourceBanco, $filter
     },
     buscarTarefasByUser: function(callback) {
       ResourceBanco.tarefa.query(function(res) {
-        res = formatDate(res);
+        // res = formatDate(res);
         callback(res);
       });
     },
@@ -36,6 +36,13 @@ angular.module('jogo').factory('ControleTarefa', function(ResourceBanco, $filter
     getTarefasAddPorUser: function(id, callback) {
       ResourceBanco.tarefaHash.query({
         "_id": id
+      }, function(res) {
+        callback(res);
+      });
+    },
+    getOneTarefa: function(id, callback) {
+      ResourceBanco.tarefaHashOne.get({
+        "hashTarefa": id
       }, function(res) {
         callback(res);
       });

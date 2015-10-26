@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h3 class="modal-title">Edição de Personagem</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+
+    <div class="col-md-6">
+      <img alt="" class="img-responsive" ng-src="{{principal.elementoSelecionado.image.image['300'].href}}" style="max-height: 450px; margin:0 auto;position: relative;"/>
+      <!-- <img alt="" class="img-responsive" ng-repeat="complementos in principal.elementoSelecionado.complementos" ng-src="{{complementos.elemento.image['300']['href']}}" style="position: absolute;top:0; left:0;margin-left:50%; left: 50%;transform: translateX(-50%);max-height: 450px; overflow: auto;margin: auto;display: block;"/> -->
+      <p alt="" class="" ng-repeat="complementos in principal.elementoSelecionado.complementos" style="position: absolute;top:38%; left:50%; overflow: auto;display: block; transform: translate(-50%, -50%); width:80%;text-align: justify;font-weight: bold;">{{complementos.texto}}
+        <p></div>
+
+        <div class="col-md-6">
+          <!-- <div class="row"> -->
+            <!-- <div class="col-md-6 col-md-offset-3"> -->
+              <div class="form-group">
+                <label for="balao">Texto do balão</label>
+                <input class="form-control" id="balao" placeholder="Texto do balão" type="text" ng-model="principal.elementoSelecionado.complementos[0].texto">
+              </div>
+            <!-- </div> -->
+
+          <!-- </div> -->
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()" type="button">OK</button>
+      <button class="btn btn-warning" ng-click="cancel()" type="button">Cancel</button>
+    </div>

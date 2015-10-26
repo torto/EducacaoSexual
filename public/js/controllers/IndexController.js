@@ -1,4 +1,4 @@
-angular.module('jogo').controller('PrincipalController',
+angular.module('jogo').controller('IndexController',
     function($scope, $resource, $routeParams, initPage,  $rootScope) {
 
         var init = {

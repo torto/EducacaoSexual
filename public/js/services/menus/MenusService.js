@@ -110,12 +110,13 @@ angular.module('jogo').factory('MenuArrayService', ['ResourceBancoMenu', functio
         id: 3,
         label: 'Balão Fala',
         categoria: 'objeto',
+        subcategoria:'balao',
         image: {
           "300": {
-            href: '/img/300/fundos/quarto.jpg'
+            href: '/img/800/baloes/fala/fala-esquerda.png'
           },
           "thumb": {
-            href: '/img/800/fundos/quarto.jpg'
+            href: '/img/thumb/baloes/fala/fala-esquerda.png'
           }
         }
       }];

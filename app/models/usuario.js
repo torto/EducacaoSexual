@@ -19,14 +19,15 @@ module.exports = function() {
     },
     email: {
       type: String,
-      default: '',
-      index: {
-        unique: true
-      }
+      default: ''
     },
     tipoUsuario: {
       type: String,
       default: ''
+    },
+    role: {
+      type: String,
+      default: 'user'
     },
     inclusao: {
       type: Date,

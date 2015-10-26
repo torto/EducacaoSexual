@@ -20,7 +20,12 @@
           <input class="form-control" placeholder="Nome da Tarefa" ng-model="tarefa.nomeTarefa" type="text">
       </div>
 
-
+      <div class="form-group" style="margin-left:10px;">
+        <label for="exampleInputEmail1">Data Final Tarefa</label>
+        <input type="text" ng-click="open($event)" class="form-control" datepicker-popup="dd/MM/yyyy"
+        ng-model="tarefa.dataFinal" is-open="status.opened"  datepicker-options="dateOptions"
+        date-disabled="disabled(date, mode)" close-text="Fechar" />
+      </div>
     </div>
 
     <div class="col-md-5 col-md-offset-1 box-border-left">

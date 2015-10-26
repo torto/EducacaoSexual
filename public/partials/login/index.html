@@ -1,5 +1,57 @@
 <div class="content">
-  <a href="/auth/github">
-    <h1 class="text-center" id="entrar">Entre pelo GitHub</h1>
-  </a>
+  <!-- <ng-include src="'partials/menu.html'"></ng-include> -->
+  <section id="content-geral-login">
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 login">
+        <div class="row">
+          <div class="text-center">
+            <h3>Acesse via redes sociais:</h3>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <a href="/auth/github">
+              <img alt="Entre pelo GitHub" class="img-responsive" src="/img/buttons/github.png"/>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="/auth/facebook">
+              <img alt="Entre pelo Facebook" class="img-responsive" src="/img/buttons/facebook.png"/>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="/auth/google">
+              <img alt="Entre pelo GOOGLE" class="img-responsive" src="/img/buttons/google.png"/>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="text-center">
+            <h3>Ou faça seu login:</h3>
+          </div>
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Usuário</label>
+              <input class="form-control" id="user" name="username" placeholder="Usuário" type="text">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Senha</label>
+              <input class="form-control" id="password" name="password" placeholder="Senha" type="password">
+            </div>
+
+            <button class="btn btn-info" type="submit">Logar</button>
+            <a href="#/registrar">Crie uma nova conta.</a>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
 </div>
+<ng-include src="'partials/footer.html'"></ng-include>

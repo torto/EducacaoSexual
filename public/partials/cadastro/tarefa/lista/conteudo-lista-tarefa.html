@@ -26,7 +26,7 @@
               <div class="spacer-xs">
                 <i class="glyphicon glyphicon-cloud"></i>
                 <small class="text-center">Data Início</small>
-                <h3 class="no-margin no-padding text-center">{{elemento.criado}}</h3>
+                <h3 class="no-margin no-padding text-center">{{elemento.criado | date: 'dd/MM/yyyy'}}</h3>
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
               <div class="spacer-xs">
                 <i class="glyphicon glyphicon-king" style="font-size: 10px"></i>
                 <small class="text-center">Data Final</small>
-                <h3 class="no-margin no-padding text-center">00/00/0000</h3>
+                <h3 class="no-margin no-padding text-center">{{elemento.dataFinal | date: 'dd/MM/yyyy'}}</h3>
               </div>
             </div>
           </div>

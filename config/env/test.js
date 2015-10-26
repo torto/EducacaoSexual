@@ -12,5 +12,7 @@ module.exports = {
   travisBuild: process.env.TRAVIS_BUILD_NUMBER,
   port: 3000,
   address: 'localhost',
-  domain: 'localhost'
+  domain: 'localhost',
+  facebookAppId: process.env.FACEBOOK_ID,
+  facebookSecret: process.env.FACEBOOK_SECRET
 };

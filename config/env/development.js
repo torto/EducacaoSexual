@@ -7,5 +7,9 @@ module.exports = {
   seleniumUserPassword: process.env.SELENIUM_USER_PASSWORD,
   port: 3000,
   address: 'localhost',
-  domain: 'localhost'
+  domain: 'localhost',
+  facebookAppId: process.env.FACEBOOK_ID,
+  facebookSecret: process.env.FACEBOOK_SECRET,
+  googleId: process.env.GOOGLE_ID,
+  googleSecret: process.env.GOOGLE_SECRET
 };

@@ -1,0 +1,50 @@
+<div class="content">
+  <!-- <ng-include src="'partials/menu.html'"></ng-include> -->
+  <section id="content-geral-login">
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 login">
+        <div class="row">
+          <div class="text-center">
+            <h3>Cadastrar um novo usuário</h3>
+          </div>
+          <form name="form" action="/signup" method="POST">
+            <div action="/singup" class="form-group" method="POST">
+              <label for="exampleInputEmail1">Usuário</label>
+              <input class="form-control" id="user" name="username" placeholder="Usuário" required type="text">
+              <span ng-class="error" ng-show="form.username.$error.required">Usuário é obrigatório</span>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Primeiro Nome</label>
+              <input class="form-control" id="fistName" name="firstName" placeholder="Ex: Guilherme" required type="teste">
+              <span ng-class="error" ng-show="form.fistName.$error.required">Nome é obrigatório</span>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Sobrenome</label>
+              <input class="form-control" id="lastName" name="lastName" placeholder="Ex: Berghauser" required type="teste">
+              <span ng-class="error" ng-show="form.lastName.$error.required">Sobrenome é obrigatório</span>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Senha</label>
+              <input class="form-control" id="password" name="password" placeholder="Senha" required type="password">
+              <span ng-class="error" ng-show="form.password.$error.required">Senha é obrigatória</span>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Email</label>
+              <input class="form-control" id="email" name="email" placeholder="E-mail" required type="email">
+              <span ng-class="error" ng-show="form.email.$error.required">Email é obrigatório</span>
+              <span ng-class="error" ng-show="form.email.$error.email">Formato do e-mail é inválido</span>
+            </div>
+
+            <button class="btn btn-info" ng-disabled="form.$invalid" type="submit">Cadastrar</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</div>
+<ng-include src="'partials/footer.html'"></ng-include>

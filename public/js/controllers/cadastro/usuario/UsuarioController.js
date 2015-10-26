@@ -11,8 +11,8 @@ angular.module('jogo').controller('CadUsuarioController',
 
       Usuario.getUsuarioLogado(function(res) {
         $scope.user = res;
-        if($routeParams.tela && $routeParams.tela == 1 && $scope.user.email && $scope.user.tipoUsuario !== ''){
-          $location.path('/');
+        if($routeParams.tela && $routeParams.tela == 1 && $scope.user.email && $scope.user.tipoUsuario !== '' && $scope.user.nome){
+          $location.path('/principal');
         }
       });
 

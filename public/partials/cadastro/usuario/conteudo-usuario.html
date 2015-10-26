@@ -12,14 +12,22 @@
 
 <div class="row" style="margin-top: 10px !important;">
   <div class="col-md-5 col-md-offset-1 box-border-left">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nome:</label>
+      <div class="input-group">
+        <span class="input-group-addon">Nome:</span>
+        <input class="form-control" ng-model="user.nome" type="text">
+      </div>
+    </div>
+
       <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
         <div class="input-group">
           <span class="input-group-addon">@</span>
           <input class="form-control" ng-model="user.email" type="text">
         </div>
-        <!-- <input class="form-control" id="exampleInputEmail1" placeholder="Email" type="email"> -->
       </div>
+
   </div>
 
   <div class="col-md-5 col-md-offset-1 box-border-left">
@@ -48,6 +56,12 @@
     <label>
       <input type="radio" name="radioProfissao" value="conselho" ng-model="user.tipoUsuario">
       Conselheirx Tutelar
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="radioProfissao" value="assistentesocial" ng-model="user.tipoUsuario">
+      Assistente Social
     </label>
   </div>
   </div>

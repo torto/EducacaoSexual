@@ -7,6 +7,11 @@ angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).c
     controller: 'PrincipalController'
   });
 
+	$routeProvider.when('/index', {
+    templateUrl: 'partials/index.html',
+    controller: 'IndexController'
+  });
+
   $routeProvider.when('/cadastro/editor', {
     templateUrl: 'partials/cadastro/historia/editor.html',
     controller: 'CadHistoriaEditor'
@@ -33,6 +38,9 @@ angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).c
   $routeProvider.when('/auth', {
     templateUrl: 'partials/login/index.html'
   });
+	$routeProvider.when('/registrar', {
+		templateUrl: 'partials/registrar/index.html'
+	});
 
 	$routeProvider.when('/edicaoUsuario/:tela', {
 		templateUrl: 'partials/cadastro/usuario/usuario-index.html',
@@ -49,7 +57,7 @@ angular.module('jogo', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']).c
 	});
 
   $routeProvider.otherwise({
-    redirectTo: '/'
+    redirectTo: '/index'
   });
 	// $locationProvider.html5Mode(true);
 

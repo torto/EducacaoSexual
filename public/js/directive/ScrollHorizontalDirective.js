@@ -8,9 +8,9 @@ angular.module('jogo').directive('scrollHorizontal', function() {
           valor: '='
         },
         link: function(scope, elem, attrs) {
-            angular.element(document).ready(function() {
-                $(elem).horizontalScroll();
-            });
+            // angular.element(document).ready(function() {
+            //     $(elem).horizontalScroll();
+            // });
         }
     };
 });

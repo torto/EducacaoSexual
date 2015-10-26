@@ -3,10 +3,12 @@ var mongoose = require('mongoose');
 module.exports = function() {
   var schema = mongoose.Schema({
     idUser: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Usuario',
+        unique: true,
+        required: true
     },
-    hashTarefa:{
+    hashTarefa: {
       type: Number,
       unique: true,
       required: true
@@ -15,8 +17,15 @@ module.exports = function() {
       type: String,
       required: true
     },
+    dataFinal: {
+      type: Date,
+      default: Date.now
+    },
     historias: [{
-      idUser: {type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'},
+      idUser: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Usuario'
+      },
       hashTarefa: String,
       idHistoria: mongoose.Schema.Types.ObjectId
     }],
