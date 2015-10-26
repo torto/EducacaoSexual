@@ -22,6 +22,7 @@ angular.module('jogo').controller('CadUsuarioController',
     $scope.updateUsuario = function(){
       Usuario.updateUsuario($scope.user, function(res){
         $scope.user = res;
+        swal("Usuário Alterado", "Usuário alterado com sucesso!", "success");
       });
     };
 
