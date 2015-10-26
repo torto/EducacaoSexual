@@ -18,8 +18,15 @@ module.exports = function() {
    return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
   };
 
+  var domain = '';
+  if(config.env == 'production'){
+    domain = 'http://' + config.domain ;
+  } else {
+    domain = 'http://' + config.domain + ':' + config.port;
+  }
+
   var Usuario = mongoose.model('Usuario');
-  var gitHubCallBack = 'http://' + config.domain + ':' + config.port + '/auth/github/callback';
+  var gitHubCallBack = domain + '/auth/github/callback';
   console.log(gitHubCallBack);
 
   passport.use(new GitHubStrategy({
@@ -46,7 +53,7 @@ module.exports = function() {
   passport.use(new FacebookStrategy({
     clientID: config.facebookAppId,
     clientSecret: config.facebookSecret,
-    callbackURL: 'http://' + config.domain + ':' + config.port + '/auth/facebook/callback',
+    callbackURL: domain + '/auth/facebook/callback',
     enableProof: false
   },
   function(accessToken, refreshToken, profile, done) {
@@ -70,7 +77,7 @@ module.exports = function() {
 passport.use(new GoogleStrategy({
     clientID: config.googleId,
     clientSecret: config.googleSecret,
-    callbackURL: 'http://' + config.domain + ':' + config.port + '/auth/google/callback'
+    callbackURL: domain + '/auth/google/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     Usuario.findOrCreate({
