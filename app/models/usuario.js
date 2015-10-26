@@ -17,6 +17,10 @@ module.exports = function() {
       type: String,
       default: ''
     },
+    email: {
+      type: String,
+      default: ''
+    },
     tipoUsuario: {
       type: String,
       default: ''
