@@ -5,7 +5,6 @@
 .tmp
 .DS_Store
 .DS_Store?
-public/vendor/
 node_modules/
 dist/
 scripts/
