@@ -32,6 +32,6 @@ module.exports = function() {
       default: []
     }
   });
-mongoose.set('debug', true);
+// mongoose.set('debug', true);
   return mongoose.model('Personagens_completo', schema);
 };
