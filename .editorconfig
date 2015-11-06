@@ -1,0 +1,9 @@
+# EditorConfig is awesome: http://EditorConfig.org
+[*]
+indent_style = space
+
+[*.js]
+indent_size = 4
+
+[*.html]
+indent_size = 2
